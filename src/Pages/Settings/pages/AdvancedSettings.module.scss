@@ -1,0 +1,28 @@
+.exports {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exportContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.exportBaseName {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.exportName {
+    font-size: 1.1em;
+}
+
+.exportSize {
+    font-size: 0.9em;
+    opacity: 0.8;
+}

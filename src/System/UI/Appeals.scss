@@ -1,0 +1,432 @@
+@use "sass:color";
+
+// Color definitions
+$success: #10b981;
+$error: #ef4444;
+$warning: #f59e0b;
+$info: #3b82f6;
+$gray: #6b7280;
+
+.AppealsReview {
+    padding: 0;
+
+    &-Header {
+        margin-bottom: 20px;
+    }
+
+    &-Filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        button {
+            padding: 10px 18px;
+            border: 2px solid transparent;
+            background: var(--BLOCK_COLOR);
+            color: var(--TEXT_COLOR);
+            border-radius: var(--BR_BASE);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+
+            &:hover {
+                border-color: var(--ACCENT_COLOR);
+                filter: brightness(1.05);
+            }
+
+            &.active {
+                background: var(--ACCENT_COLOR);
+                color: white;
+                border-color: var(--ACCENT_COLOR);
+                font-weight: 600;
+            }
+        }
+    }
+
+    &-Empty {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--TEXT_COLOR_LITE);
+        background: var(--BLOCK_COLOR);
+        border-radius: var(--BR_BASE);
+        font-size: 1rem;
+    }
+
+    &-List {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &-Item {
+        background: var(--BLOCK_COLOR);
+        border: 1px solid var(--AIR_BLOCK_COLOR);
+        border-radius: var(--BR_BASE);
+        padding: 16px;
+        transition: all 0.2s;
+
+        &:hover {
+            border-color: var(--ACCENT_COLOR);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &-ItemHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--BLOCK_BLOCK_COLOR);
+
+        .User {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--TITLE_COLOR);
+        }
+
+        .Status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+
+            svg {
+                width: 16px;
+                height: 16px;
+                fill: currentColor;
+            }
+        }
+    }
+
+    &-ItemContent {
+        margin-bottom: 16px;
+
+        .Restriction,
+        .Reason,
+        .OriginalReason,
+        .Response {
+            margin-bottom: 12px;
+
+            strong {
+                color: var(--TITLE_COLOR);
+                display: block;
+                margin-bottom: 6px;
+                font-size: 0.95rem;
+            }
+
+            p {
+                color: var(--TEXT_COLOR);
+                margin: 0;
+                padding: 10px 12px;
+                background: var(--BLOCK_BLOCK_COLOR);
+                border: 1px solid var(--AIR_BLOCK_COLOR);
+                border-left: 3px solid var(--ACCENT_COLOR);
+                border-radius: 6px;
+                line-height: 1.5;
+                font-size: 0.9rem;
+            }
+
+            small {
+                color: var(--TEXT_COLOR_LITE);
+                font-size: 12px;
+                margin-top: 6px;
+                display: block;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &-ItemFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding-top: 12px;
+        border-top: 1px solid var(--BLOCK_BLOCK_COLOR);
+
+        .Date {
+            color: var(--TEXT_COLOR_LITE);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .Actions {
+            display: flex;
+            gap: 6px;
+        }
+    }
+
+    &-ActionBtn {
+        padding: 8px 14px;
+        border: 1px solid transparent;
+        background: var(--BLOCK_BLOCK_COLOR);
+        color: var(--TEXT_COLOR);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.2s;
+
+        svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            border-color: currentColor;
+        }
+
+        &.approve {
+            color: $success;
+            border-color: rgba($success, 0.3);
+
+            &:hover:not(:disabled) {
+                background: rgba($success, 0.1);
+                border-color: $success;
+                color: $success;
+            }
+        }
+
+        &.reject {
+            color: $error;
+            border-color: rgba($error, 0.3);
+
+            &:hover:not(:disabled) {
+                background: rgba($error, 0.1);
+                border-color: $error;
+                color: $error;
+            }
+        }
+
+        &.review {
+            color: $info;
+            border-color: rgba($info, 0.3);
+
+            &:hover:not(:disabled) {
+                background: rgba($info, 0.1);
+                border-color: $info;
+                color: $info;
+            }
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.ReviewAppealModal {
+    &-Content {
+        padding: 20px;
+        max-width: 600px;
+    }
+
+    .Appeal-Info {
+        margin-bottom: 20px;
+        padding: 16px;
+        background: var(--BLOCK_BLOCK_COLOR);
+        border: 1px solid var(--AIR_BLOCK_COLOR);
+        border-radius: var(--BR_BASE);
+
+        h4 {
+            margin: 0 0 12px 0;
+            color: var(--TITLE_COLOR);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: var(--TEXT_COLOR);
+            font-size: 0.95rem;
+            line-height: 1.5;
+
+            strong {
+                color: var(--TITLE_COLOR);
+                font-weight: 600;
+            }
+        }
+    }
+
+    .Appeal-Reason {
+        background: var(--BLOCK_COLOR);
+        border: 1px solid var(--AIR_BLOCK_COLOR);
+        border-left: 3px solid $warning;
+        border-radius: 6px;
+        padding: 12px;
+        margin-top: 8px;
+        color: var(--TEXT_COLOR);
+        line-height: 1.5;
+        font-size: 0.9rem;
+    }
+
+    .Response-Field {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--TITLE_COLOR);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .SocialInput-container {
+            width: 100%;
+
+            .UI-Input {
+                min-height: 120px;
+                padding: 12px;
+                font-size: 14px;
+                line-height: 1.4;
+                border: 1px solid var(--AIR_BLOCK_COLOR);
+                border-radius: var(--BR_BASE);
+
+                &:focus {
+                    border-color: var(--ACCENT_COLOR);
+                    outline: none;
+                }
+            }
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid var(--AIR_BLOCK_COLOR);
+            border-radius: var(--BR_BASE);
+            background: var(--BLOCK_COLOR);
+            color: var(--TEXT_COLOR);
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.4;
+            resize: vertical;
+
+            &:focus {
+                outline: none;
+                border-color: var(--ACCENT_COLOR);
+                box-shadow: 0 0 0 2px rgba(150, 116, 202, 0.1);
+            }
+
+            &::placeholder {
+                color: var(--TEXT_COLOR_LITE);
+            }
+        }
+    }
+
+    .Response-Counter {
+        text-align: right;
+        font-size: 12px;
+        color: var(--TEXT_COLOR_LITE);
+        margin-top: 6px;
+        font-weight: 500;
+    }
+
+    &-Actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--BR_BASE);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            flex: 0 1 auto;
+
+            &:hover:not(:disabled) {
+                transform: translateY(-2px);
+                filter: brightness(1.1);
+            }
+
+            &:active:not(:disabled) {
+                transform: translateY(0);
+            }
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+
+        .approve {
+            background: $success;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background: color.adjust($success, $lightness: -5%);
+            }
+        }
+
+        .reject {
+            background: $error;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background: color.adjust($error, $lightness: -5%);
+            }
+        }
+
+        .UI-Window_BTN_NOACT {
+            background: var(--BLOCK_COLOR);
+            color: var(--TEXT_COLOR);
+            border: 1px solid var(--AIR_BLOCK_COLOR);
+
+            &:hover:not(:disabled) {
+                background: var(--BLOCK_BLOCK_COLOR);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .AppealsReview {
+        &-ItemFooter {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+
+            .Actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        &-Filters {
+            button {
+                flex: 1;
+                min-width: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    .ReviewAppealModal {
+        &-Content {
+            padding: 16px;
+        }
+
+        &-Actions {
+            flex-direction: column;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

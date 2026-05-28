@@ -1,0 +1,67 @@
+.pollCreator {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    :global(.UI-Input) {
+        width: 100%;
+    }
+
+    :global(.UI-Button) {
+        width: 100%;
+    }
+}
+
+.optionsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.optionRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.removeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--INPUT_COLOR);
+    fill: var(--D_OR_P_COLOR);
+    flex-shrink: 0;
+    transition: background 0.15s, fill 0.15s;
+
+    svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    &:hover {
+        background: color-mix(in srgb, var(--ACCENT_COLOR) 10%, var(--INPUT_COLOR));
+        fill: var(--ACCENT_COLOR);
+    }
+}
+
+.hint {
+    font-size: 0.8em;
+    color: var(--D_OR_P_COLOR);
+    padding: 2px 4px;
+}
+
+.settingsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    :global(.Parameter) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

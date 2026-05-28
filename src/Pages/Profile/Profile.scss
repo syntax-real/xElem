@@ -1,0 +1,134 @@
+.SendGift {
+    .Header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        svg {
+            fill: var(--ACCENT_COLOR);
+        }
+
+        .Avatar {
+            z-index: 1;
+        }
+    }
+
+    .Info {
+        margin-top: 20px;
+        text-align: center;
+
+        .Title {
+            font-family: var(--FF_TITLE);
+            margin-top: 10px;
+        }
+
+        .Description {
+            font-size: 0.9rem;
+        }
+    }
+
+    .Gifts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 7px;
+    }
+}
+
+.ViewGift {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .Image {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+            position: relative;
+
+            .Preview,
+            img,
+            .NeoImage {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .Name {
+            font-family: var(--FF_TITLE);
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    }
+
+    .GiftTable {
+        width: 100%;
+
+        table {
+            background: var(--AIR_BLOCK_COLOR);
+            border-radius: 14px;
+            overflow: hidden;
+            border-collapse: separate;
+            border-spacing: 2px 2px;
+            display: table;
+            table-layout: auto;
+        }
+
+        td:first-child {
+            background: var(--BLOCK_BLOCK_COLOR);
+            width: auto;
+            white-space: nowrap;
+        }
+
+        td:last-child {
+            background: var(--BLOCK_COLOR);
+            width: 100%;
+            padding: 10px 5px;
+        }
+
+        tr:first-child td:first-child {
+            border-top-left-radius: 13px;
+        }
+
+        tr:first-child td:last-child {
+            border-top-right-radius: 13px;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 13px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 13px;
+        }
+
+        td {
+            padding: 10px 5px;
+            background: #1a1a1a;
+            white-space: nowrap;
+        }
+
+        td a,
+        .Price {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .Price .UI-Eball {
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+        }
+    }
+}

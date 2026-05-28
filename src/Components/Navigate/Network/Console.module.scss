@@ -1,0 +1,52 @@
+.console {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.body {
+    flex: 1;
+    padding: 10px;
+    color: #00ff9c;
+    font-size: 14px;
+    overflow-y: auto;
+}
+
+.inputLine {
+    display: none;
+}
+
+.prompt {
+    color: #00d4ff;
+    margin-right: 6px;
+    white-space: nowrap;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff9c;
+    font-family: monospace;
+    font-size: 14px;
+    width: 100%;
+}
+
+.sending {
+    color: #2196f3;
+}
+
+.get {
+    color: #4caf50;
+}
+
+.timeout {
+    color: #f44336;
+}
+
+.user {
+    color: #999;
+}

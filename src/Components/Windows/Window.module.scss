@@ -1,0 +1,43 @@
+.window {
+    background: var(--AIR_COLOR);
+    backdrop-filter: var(--AIR_BLUR);
+    border-radius: var(--BR_BASE);
+    flex-direction: column;
+    user-select: none;
+    box-shadow: var(--AIR_SHADOW);
+    overflow: hidden;
+}
+
+.header {
+    flex: 0 0 auto;
+    background: var(--AIR_BLOCK_COLOR);
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: var(--FF_TITLE);
+    padding: 5px;
+}
+
+.close {
+    background: var(--BTN_CLOSE_COLOR);
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+
+    svg {
+        fill: red;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.content {
+    flex: 1 1 auto;
+    overflow: auto;
+}

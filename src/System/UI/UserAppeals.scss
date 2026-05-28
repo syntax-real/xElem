@@ -1,0 +1,428 @@
+// Color palette
+$success: #10b981;
+$error: #ef4444;
+$warning: #f59e0b;
+$info: #3b82f6;
+
+.UserAppeals {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .appeals-tabs {
+        display: flex;
+        gap: 12px;
+        border-bottom: 1px solid var(--AIR_BLOCK_COLOR);
+
+        .tab-btn {
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            color: var(--TEXT_COLOR);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
+
+            &:hover {
+                color: var(--ACCENT_COLOR);
+            }
+
+            &.active {
+                color: var(--ACCENT_COLOR);
+                border-bottom-color: var(--ACCENT_COLOR);
+            }
+        }
+    }
+
+    .appeals-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--TEXT_COLOR_LITE);
+
+            .empty-icon {
+                font-size: 48px;
+                margin-bottom: 12px;
+            }
+
+            .empty-text {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .punishments-list,
+    .appeals-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .punishment-card,
+    .appeal-card {
+        background: var(--BLOCK_COLOR);
+        border: 1px solid var(--AIR_BLOCK_COLOR);
+        border-radius: var(--BR_BASE);
+        padding: 16px;
+        transition: all 0.2s;
+
+        &:hover {
+            border-color: var(--ACCENT_COLOR);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .punishment-card {
+        .punishment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--BLOCK_BLOCK_COLOR);
+
+            .punishment-type {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--TITLE_COLOR);
+            }
+
+            .punishment-status {
+                .badge {
+                    padding: 6px 12px;
+                    border-radius: 12px;
+                    font-size: 12px;
+                    font-weight: 600;
+
+                    &.active {
+                        background: rgba($error, 0.1);
+                        color: $error;
+                    }
+
+                    &.inactive {
+                        background: rgba($success, 0.1);
+                        color: $success;
+                    }
+                }
+            }
+        }
+
+        .punishment-reason {
+            margin-bottom: 12px;
+
+            strong {
+                color: var(--TITLE_COLOR);
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            p {
+                color: var(--TEXT_COLOR);
+                margin: 0;
+                padding: 10px 12px;
+                background: var(--BLOCK_BLOCK_COLOR);
+                border-left: 3px solid $warning;
+                border-radius: 6px;
+                line-height: 1.5;
+            }
+        }
+
+        .punishment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+
+            .detail {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                .label {
+                    font-size: 12px;
+                    color: var(--TEXT_COLOR_LITE);
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                .value {
+                    font-size: 14px;
+                    color: var(--TEXT_COLOR);
+                }
+            }
+        }
+
+        .punishment-moderator {
+            font-size: 13px;
+            color: var(--TEXT_COLOR_LITE);
+            margin-bottom: 12px;
+            padding: 8px 12px;
+            background: var(--BLOCK_BLOCK_COLOR);
+            border-radius: 6px;
+
+            strong {
+                color: var(--ACCENT_COLOR);
+            }
+        }
+
+        .punishment-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--BLOCK_BLOCK_COLOR);
+        }
+    }
+
+    .appeal-card {
+        .appeal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--BLOCK_BLOCK_COLOR);
+
+            .appeal-type {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--TITLE_COLOR);
+            }
+
+            .appeal-status {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 6px 12px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: currentColor;
+                }
+            }
+        }
+
+        .appeal-reason {
+            margin-bottom: 12px;
+
+            strong {
+                color: var(--TITLE_COLOR);
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            p {
+                color: var(--TEXT_COLOR);
+                margin: 0;
+                padding: 10px 12px;
+                background: var(--BLOCK_BLOCK_COLOR);
+                border-left: 3px solid $info;
+                border-radius: 6px;
+                line-height: 1.5;
+            }
+        }
+
+        .appeal-response {
+            background: rgba($success, 0.05);
+            border: 1px solid rgba($success, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+
+            strong {
+                color: $success;
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            p {
+                color: var(--TEXT_COLOR);
+                margin: 0 0 8px 0;
+                line-height: 1.5;
+                font-size: 14px;
+            }
+
+            .reviewer {
+                font-size: 12px;
+                color: var(--TEXT_COLOR_LITE);
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px solid rgba($success, 0.2);
+            }
+        }
+
+        .appeal-dates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--TEXT_COLOR_LITE);
+
+            .date {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+
+                .label {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3px;
+                }
+
+                .value {
+                    color: var(--TEXT_COLOR);
+                }
+            }
+        }
+    }
+}
+
+.user-appeals-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px 20px;
+    color: var(--TEXT_COLOR);
+
+    .spinner {
+        font-size: 24px;
+        animation: spin 1s linear infinite;
+    }
+}
+
+.AppealForm {
+    padding: 20px;
+    max-width: 600px;
+
+    .appeal-info {
+        background: var(--BLOCK_BLOCK_COLOR);
+        border: 1px solid var(--AIR_BLOCK_COLOR);
+        border-radius: var(--BR_BASE);
+        padding: 16px;
+        margin-bottom: 20px;
+
+        .info-item {
+            margin-bottom: 12px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            strong {
+                color: var(--TITLE_COLOR);
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            span {
+                color: var(--TEXT_COLOR);
+                display: block;
+                padding: 8px 0;
+            }
+        }
+    }
+
+    .appeal-input {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            color: var(--TITLE_COLOR);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        textarea,
+        .UI-Input {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid var(--AIR_BLOCK_COLOR);
+            border-radius: var(--BR_BASE);
+            background: var(--BLOCK_COLOR);
+            color: var(--TEXT_COLOR);
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.4;
+            resize: vertical;
+
+            &:focus {
+                outline: none;
+                border-color: var(--ACCENT_COLOR);
+                box-shadow: 0 0 0 2px rgba(150, 116, 202, 0.1);
+            }
+
+            &::placeholder {
+                color: var(--TEXT_COLOR_LITE);
+            }
+        }
+    }
+
+    .char-count {
+        text-align: right;
+        font-size: 12px;
+        color: var(--TEXT_COLOR_LITE);
+        margin-top: 6px;
+        font-weight: 500;
+    }
+
+    .appeal-actions {
+        display: flex;
+        gap: 12px;
+
+        button {
+            flex: 1;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .UserAppeals {
+        .appeals-tabs {
+            .tab-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        .punishment-card,
+        .appeal-card {
+            .punishment-details,
+            .appeal-dates {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    }
+
+    .AppealForm {
+        padding: 16px;
+
+        .appeal-actions {
+            flex-direction: column;
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

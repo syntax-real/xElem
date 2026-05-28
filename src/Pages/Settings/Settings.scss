@@ -1,0 +1,541 @@
+/* Настройки */
+
+.Settings-Page {
+    .UI-C_L,
+    .UI-C_R {
+        position: relative;
+    }
+}
+
+.Settings-Page .UI-C_R {
+    .Footer {
+        background: var(--AIR_COLOR);
+        border-radius: var(--BR_BASE);
+        backdrop-filter: var(--AIR_BLUR);
+        width: 95%;
+        position: sticky;
+        bottom: 20px;
+        margin: auto;
+        padding: 10px;
+        box-shadow: var(--AIR_SHADOW);
+    }
+}
+
+.Settings-Page .UI-B_FIRST {
+    display: block;
+}
+
+/* Настройки - Редактирование профиля */
+
+.Settings-ChangeButtons {
+    width: fit-content;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    input {
+        display: none;
+    }
+}
+
+.Settings-ChangeButtons .Button {
+    background: var(--BTN_BACKGROUND);
+    color: var(--BTN_TEXT_COLOR);
+    font-size: var(--FS_TEXT);
+    border-radius: 0px;
+    margin-bottom: 1.5px;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.Settings-ChangeButtons .Button:active {
+    filter: brightness(0.8);
+}
+
+.Settings-ChangeButtons .ButtonDL {
+    background: var(--BTN_CLOSE_COLOR);
+    color: var(--BTN_TEXT_COLOR);
+    font-size: var(--FS_TEXT);
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding: 5px 10px;
+}
+
+.Settings-CP_Cover {
+    background: var(--NL_GRADIENT);
+    border-radius: 5px;
+    width: 100%;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+}
+
+.Settings-CP_Cover .Settings-ChangeButtons {
+    border-radius: 5px 0px 0px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.Settings-CP_Cover .Settings-ChangeButtons .Button {
+    background: rgb(242 242 242 / 70%);
+    backdrop-filter: blur(3px);
+    color: rgb(79 79 79);
+    border-radius: 5px 0px 0px 0px;
+}
+
+.Settings-CP_Cover .Settings-ChangeButtons .ButtonDL {
+    backdrop-filter: blur(3px);
+    color: rgb(79 79 79);
+}
+
+.Settings-CP_Avatar {
+    margin: 4px 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Settings-CP_Avatar .Avatar {
+    position: relative;
+    left: 14px;
+    z-index: 1;
+}
+
+.Settings-CP_Avatar .Settings-ChangeButtons {
+    right: 14px;
+}
+
+.Settings-CP_Avatar .Button {
+    padding: 5px 10px 5px 40px;
+}
+
+.Settings-CP_Avatar .ButtonDL {
+    padding: 5px 10px 5px 40px;
+}
+
+.Settings-CP_Input_container {
+    width: 100%;
+    margin: 0px 0px 3px 0px;
+    padding: 0px 5px;
+    display: flex;
+    flex-direction: column;
+
+    .Title {
+        color: rgb(156 153 167);
+        font-size: 0.8em;
+        margin: 6px 0px 5px 6px;
+    }
+
+    .UI-Input {
+        width: 100%;
+    }
+
+    input {
+        position: sticky;
+        z-index: 3;
+    }
+
+    textarea {
+        height: 80px;
+        position: sticky;
+        z-index: 1;
+        overflow: hidden;
+        resize: none;
+    }
+
+    .UI-Links {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.Settings-LinkContainer {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Avatar {
+        margin-right: -15px;
+    }
+
+    .LinkIcon {
+        width: 42px;
+        height: 42px;
+        margin-left: -15px;
+        margin-top: 50px;
+        z-index: 1;
+
+        svg,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        svg {
+            fill: var(--ACCENT_COLOR);
+            filter: drop-shadow(2px 4px 3px var(--ACCENT_COLOR));
+        }
+    }
+}
+
+/* Настройки - Выбор темы */
+
+.Settings-Themes {
+    padding: 8px 0px 4px 0px;
+    overflow: hidden;
+    position: relative;
+
+    .ThemeScrollButton {
+        border-radius: 100%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+
+        svg {
+            color: var(--TEXT_COLOR);
+            width: 28px;
+            height: 28px;
+        }
+
+        &.left {
+            left: 5px;
+        }
+
+        &.right {
+            right: 5px;
+        }
+    }
+
+    .Scroll {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        gap: 12px;
+        scrollbar-width: none;
+        user-select: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .ChangeTheme {
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &.Selected {
+                .Info {
+                    background: var(--ACCENT_COLOR);
+                    color: #fff;
+                    transform: scale(1.05);
+                }
+
+                .TH-Container {
+                    border: 2px solid var(--ACCENT_COLOR);
+                }
+            }
+        }
+
+        .Info {
+            color: var(--TEXT_COLOR);
+            font-size: 10px;
+            width: 70px;
+            margin-top: 5px;
+            text-align: center;
+            padding: 4px 5px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            line-height: 1.1;
+            background: var(--BLOCK_COLOR_LITE);
+        }
+    }
+}
+
+/* Настройки - Разделы */
+
+.Settings-Author {
+    display: flex;
+    align-items: flex-start !important;
+
+    .Avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .Info {
+        margin-left: 10px;
+    }
+
+    .Name {
+        color: var(--TEXT_COLOR);
+        font-family: var(--FF_TITLE);
+        font-size: 1em;
+        margin-top: 3px;
+    }
+
+    .JobTitle {
+        color: var(--BLOCK_COLOR_LITE_TEXT);
+        font-size: 0.87em;
+        margin-top: 5px;
+    }
+
+    .Links {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+
+        .SocialLink {
+            background: var(--AIR_BLOCK_COLOR);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 5px;
+            font-size: 0.8em;
+
+            svg,
+            img {
+                width: 15px;
+                height: 15px;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.Settings-PType {
+    width: 100%;
+    gap: 5px;
+    display: flex;
+}
+
+.Settings-PType button {
+    width: 100%;
+    padding: 5px;
+}
+
+.Settings-PType .Active {
+    background: rgb(195 184 226);
+    color: rgb(27 19 48 / 80%);
+}
+
+.Settings-UsernameIcon {
+    margin: 35px auto 25px auto;
+    width: fit-content;
+}
+
+.Settings-UsernameIcon svg {
+    fill: var(--ACCENT_COLOR);
+    filter: drop-shadow(2px 4px 3px var(--ACCENT_COLOR));
+    width: 70px;
+    height: 70px;
+}
+
+/* Настройки - Сессии */
+
+.Settings-Session {
+    width: 100%;
+    padding: 0px 7px;
+    display: flex;
+    gap: 10px;
+
+    .Icon {
+        background: var(--AIR_COLOR);
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Info {
+        flex: 1;
+
+        .DeviceType {
+            font-size: 1.2em;
+        }
+
+        .Device {
+            font-size: 0.9em;
+        }
+    }
+
+    button {
+        fill: #ff0000;
+        background: #ffffff00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Настройки - Выбор языка */
+
+.Settings-ChangeLanguage {
+    background: var(--BLOCK_COLOR_LITE);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+
+    img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+}
+
+.Settings-Advanced {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.UI-Parameter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .PRF_I {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ProfileIcon {
+        fill: var(--ACCENT_COLOR);
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.MyReport-Item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .MyReport-Header {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .MyReport-Target,
+        .MyReport-Status {
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .MyReport-Target {
+            background: var(--ACCENT_COLOR);
+        }
+    }
+
+    .MyReport-Content {
+        .MyReport-Category,
+        .MyReport-Message,
+        .MyReport-TargetContent {
+            color: var(--TEXT_COLOR);
+            font-size: 0.9rem;
+            line-height: 1.4;
+
+            strong {
+                color: var(--TITLE_COLOR);
+            }
+        }
+    }
+
+    .MyReport-Footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        opacity: 0.6;
+    }
+
+    .MyReport-Resolution {
+        background: var(--INPUT_COLOR);
+        border-radius: 8px;
+        padding: 10px;
+        border-left: 3px solid var(--ACCENT_COLOR);
+
+        .resolution-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--TITLE_COLOR);
+            font-size: 0.9rem;
+
+            svg {
+                width: 14px;
+                height: 14px;
+                fill: var(--ACCENT_COLOR);
+            }
+        }
+
+        .resolution-text {
+            color: var(--TEXT_COLOR);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .moderator-info {
+            margin-top: 8px;
+            font-size: 0.85rem;
+
+            .moderator-link {
+                background: none;
+                border: none;
+                color: var(--ACCENT_COLOR);
+                cursor: pointer;
+                text-decoration: underline;
+                font-size: inherit;
+                font-family: inherit;
+                padding: 0;
+                margin: 0;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    color: #7e5ba6;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 768px),
+    only screen and (device-width: 768px) and (device-height: 768px),
+    only screen and (width: 768px) and (orientation: landscape),
+    only screen and (device-width: 768px),
+    only screen and (max-width: 768px) {
+    .Settings-Page .UI-C_R .Footer {
+        position: fixed;
+        bottom: 75px;
+    }
+}
