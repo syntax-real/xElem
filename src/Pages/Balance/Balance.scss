@@ -656,6 +656,7 @@
     .Form {
         background: var(--AIR_COLOR);
         border-radius: 10px;
+        -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         margin-top: -80px;
         position: sticky;

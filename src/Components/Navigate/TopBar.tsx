@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import MiniPlayer from "./MiniPlayer";
-import { I_DOWNLOAD, I_MUSIC } from "../../System/UI/IconPack";
+import { I_DOWNLOAD, I_LOGO, I_MUSIC } from "../../System/UI/IconPack";
 import SearchResult from "./SearchResult";
 import NavPanel from "./NavPanel";
 import MobileSidebar from "./MobileSidebar";
@@ -15,6 +15,7 @@ import { useDownloadStore } from "../../Store/downloadStore";
 import Downloads from "./Downloads";
 import { usePlayerStore } from "../../Store/playerStore";
 import useSettingsStore from "../../Store/settingsStore";
+import { Logo } from "@/Widgets/Logo";
 
 interface TopBarProps {
   title?: boolean;
@@ -23,7 +24,7 @@ interface TopBarProps {
   className?: string;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ title, search, titleText }) => {
+const TopBar: React.FC<TopBarProps> = ({ search }) => {
   const { t } = useTranslation();
   const { accountData } = useAuth();
   const { showDownloads } = useSettingsStore();
@@ -157,16 +158,12 @@ const TopBar: React.FC<TopBarProps> = ({ title, search, titleText }) => {
             <div className="UI-N_DIV">
               {accountData?.id ? (
                 <>
-                  {title ? (
-                    <div className="UI-N_L_AND_N">
-                      <NavLink className="UI-Logo" to="/" />
-                      <div>{titleText}</div>
-                    </div>
-                  ) : (
-                    <NavLink className="UI-Logo" to="/" />
-                  )}
+                  {/* Logo */}
+                  <Logo />
+
+                  {/* block 2 */}
                   <motion.div
-                    className="Search-Container"
+                    className="Search-Container flex gap-2 items-center"
                     initial={shouldAnimate ? "hidden" : false}
                     animate="visible"
                     exit="exit"
@@ -196,9 +193,11 @@ const TopBar: React.FC<TopBarProps> = ({ title, search, titleText }) => {
                           : Number(accountData?.e_balls || 0).toFixed(3)}
                       </div>
                     </Bubble>
+
+                    {/* Music */}
                     {songSelected && (
                       <button
-                        className="SwitchButton"
+                        className="SwitchButton UI-Bubble h-fit"
                         onClick={() => {
                           setIsMusicPlayerOpen((prev) => !prev);
                           setShouldAnimate(true);

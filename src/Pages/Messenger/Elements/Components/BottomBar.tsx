@@ -82,8 +82,6 @@ const BottomBar = ({
     );
     const [isRecording, setIsRecording] = useState(false);
     const [recordingTime, setRecordingTime] = useState(0);
-    const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
-    const [swipeOffset, setSwipeOffset] = useState(0);
     const [isLocked, setIsLocked] = useState(false);
     const [slideUpOffset, setSlideUpOffset] = useState(0);
     const [isHolding, setIsHolding] = useState(false);
@@ -94,9 +92,7 @@ const BottomBar = ({
     const audioContextRef = useRef<AudioContext | null>(null);
     const analyserRef = useRef<AnalyserNode | null>(null);
     const animationFrameRef = useRef<number | null>(null);
-    const swipeStartX = useRef<number>(0);
     const holdStartY = useRef<number>(0);
-    const isDragging = useRef<boolean>(false);
     const micButtonRef = useRef<HTMLButtonElement>(null);
     const videoPreviewRef = useRef<HTMLVideoElement>(null);
     const videoStreamRef = useRef<MediaStream | null>(null);
@@ -292,7 +288,6 @@ const BottomBar = ({
                 const audioBlob = new Blob(audioChunksRef.current, {
                     type: audioBlobType,
                 });
-                setAudioBlob(audioBlob);
 
                 stream.getTracks().forEach((track) => track.stop());
 
@@ -395,7 +390,6 @@ const BottomBar = ({
 
             setIsRecording(false);
             setRecordingTime(0);
-            setSwipeOffset(0);
             setIsLocked(false);
             setSlideUpOffset(0);
             setIsHolding(false);
@@ -564,7 +558,6 @@ const BottomBar = ({
 
             setIsRecording(false);
             setRecordingTime(0);
-            setSwipeOffset(0);
             setIsLocked(false);
             setSlideUpOffset(0);
             setIsHolding(false);

@@ -13,74 +13,75 @@
 }
 
 :root {
-  --BODY_COLOR: rgb(242 241 246);
-  --BACKDROP_COLOR: rgba(0, 0, 0, 0.2);
+  --BODY_COLOR: rgb(11, 11, 11);
+  --AIR_COLOR: rgba(19, 18, 18, 0.85);
+  --AIR_BLOCK_COLOR: rgba(27, 26, 26, 0.2);
+  --AIR_SHADOW: 0px 3px 10px -3px rgb(0 0 0 / 50%);
 
-  --AIR_COLOR: rgb(255 255 255 / 90%);
-  --AIR_BLOCK_COLOR: rgb(195 191 209 / 30%);
+  --AIR_CONTEXT_SHADOW_COLOR_START: rgb(53 51 61 / 0%);
+  --AIR_CONTEXT_SHADOW_COLOR_END: rgb(6 6 8 / 30%);
+
+  --BLOCK_COLOR: rgb(26, 26, 26);
+  --BLOCK_COLOR_LITE: rgb(37 37 37 / 60%);
+  --BLOCK_COLOR_LITE_TEXT: rgb(189 189 190);
+  --BLOCK_BLOCK_COLOR: rgb(59 59 59);
+  --BLOCK_BLOCK_COLOR_LITE: rgb(58 58 60 / 60%);
+  --BLOCK_SHADOW: 0px 1px 2px -1px rgb(0 0 0 / 65%);
+
+  --INPUT_COLOR: rgb(55 55 55);
+
+  --BTN_TEXT_COLOR: #dbdbdb;
+  --BTN_BACKGROUND: rgb(55 55 55);
+  --BTN_CLOSE_COLOR: rgb(207 92 92 / 50%);
+
+  --INTERACTION_BTN_COLOR: rgb(61 61 61 / 70%);
+  --INTERACTION_BTN_TEXT_COLOR: rgb(255 255 255 / 70%);
+
+  --TITLE_COLOR: rgb(255 255 255);
+  --TEXT_COLOR: rgb(233 233 233);
+
+  --D_OR_P_COLOR: rgb(191 191 191);
+
+  --LG_AIR_COLOR: rgb(32, 32, 32);
+  --LG_AIR_BORDER_COLOR: rgba(81, 80, 80, 0.47);
+  --LG_AIR_TEXT_COLOR: #fff;
+  --LG_AIR_BLOCK_COLOR: rgb(0 0 0 / 20%);
+
+  --BACKDROP_COLOR: rgba(138, 134, 134, 0.2);
   --AIR_BLUR: saturate(180%) blur(20px);
-  --AIR_SHADOW: 0px 3px 10px -3px rgb(114 114 114 / 50%);
-
-  --AIR_CONTEXT_SHADOW_COLOR_START: rgb(47 46 55 / 0%);
-  --AIR_CONTEXT_SHADOW_COLOR_END: rgb(0 0 0 / 20%);
-
-  --BLOCK_COLOR: rgb(254 254 254);
-  --BLOCK_COLOR_LITE: rgb(254 254 254 / 55%);
-  --BLOCK_COLOR_LITE_TEXT: rgb(136 134 141);
-  --BLOCK_BLOCK_COLOR: rgb(243 242 246);
-  --BLOCK_BLOCK_COLOR_LITE: rgb(243 242 246 / 60%);
-  --BLOCK_SHADOW: 0px 1px 2px -1px rgb(219 218 225);
-
-  --BTN_BACKGROUND: rgb(243 242 246);
-  --BTN_TEXT_COLOR: rgb(112 111 124);
-  --BTN_CLOSE_COLOR: rgb(255 193 193 / 70%);
-
-  --INTERACTION_BTN_COLOR: rgb(244 243 246);
-  --INTERACTION_BTN_TEXT_COLOR: rgb(83 76 93 / 65%);
-
-  --INPUT_COLOR: rgb(246, 243, 242);
+  --LG_AIR_BLUR: saturate(300%) blur(5px);
 
   --ACCENT_COLOR: rgb(153 90 246);
   --ACCENT_COLOR_TRANSPARENT_02: rgb(153 90 246 / 20%);
   --NL_GRADIENT: linear-gradient(20deg, rgb(127 110 176), rgb(161 157 177));
   --GOLD_GRADIENT: linear-gradient(465deg, #fab31e, #fd9347);
 
-  --TITLE_COLOR: rgb(81 78 88);
-  --TEXT_COLOR: rgb(97 93 106);
   --TEXT_COLOR_LITE: rgb(139 135 154 / 50%);
-
   --FS_TITLE: 1em;
   --FS_TEXT: 0.95em;
   --FS_NAME: 1em;
   --FS_D_OR_P: 0.8em;
-
   --FF_TITLE: "SF Pro Display Bold";
 
   --C_TOP_MARGIN: 60px;
-
   --BR_BTN: 15px;
   --BR_BASE: 25px;
-
   --PUSTOTA_WIDTH: 3px;
   --BASE_MARGIN_BOTTOM: 5px;
-  --D_OR_P_COLOR: rgb(104 101 112 / 70%);
+  --LG_PADDING: 10px;
+  --LG_CORNER_SHAPE: superellipse(1.5);
+  --LG_AIR_BORDER_RADIUS: 30px;
 
-  --REPLY_BG: rgb(150 116 202 / 20%);
-  --REPLY_SVG_COLOR: rgb(150 116 202 / 50%);
-
+  /* --- Ответы и код --- */
+  --REPLY_BG: linear-gradient(
+    465deg,
+    rgb(250, 179, 30, 40%),
+    rgb(253, 147, 71, 40%)
+  );
+  --REPLY_SVG_COLOR: rgb(253, 147, 71, 70%);
   --CODE_BG: #d1d1d1;
   --CODE_COLOR: black;
 
-  // Новый интерфейс
-  --LG_AIR_COLOR: rgb(98, 96, 96);
-  --LG_AIR_BLUR: saturate(300%) blur(5px);
-
-  --LG_AIR_BORDER_RADIUS: 30px;
-  --LG_AIR_BORDER_COLOR: rgb(209 209 209 / 47%);
-  --LG_AIR_TEXT_COLOR: rgb(48 48 48 / 95%);
-  --LG_PADDING: 10px;
-  --LG_CORNER_SHAPE: superellipse(1.5);
-  --LG_AIR_BLOCK_COLOR: rgba(59, 57, 57, 0.9);
   --TOP_GRADIENT_MASK: linear-gradient(
     rgb(0, 0, 0) 0%,
     rgba(0, 0, 0, 0.9) 20%,
@@ -292,6 +293,7 @@ button:active {
 
 .UI-Blur {
   background: rgb(119 119 119 / 50%);
+  -webkit-backdrop-filter: 10px;
   backdrop-filter: blur(10px);
   z-index: 10;
   width: 100%;
@@ -431,7 +433,9 @@ header::before {
 
   .SwitchButton {
     background: rgb(255 255 255 / 0%);
-    width: 30px;
+    width: 40px;
+    height: 40px;
+    
     flex-shrink: 0;
     padding: 0;
     display: flex;
@@ -448,7 +452,7 @@ header::before {
 
 .Search-Container {
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
   height: fit-content;
   display: flex;
   align-items: stretch;
@@ -960,18 +964,16 @@ header::before {
 // Интерфейс - Боковая навигация
 
 .UI-L_NAV {
-  height: fit-content;
   width: 200px;
   padding-left: 10px;
   text-wrap: nowrap;
 
   button {
-    border: 1px solid transparent;
     background: transparent;
     color: var(--BLOCK_COLOR_LITE_TEXT);
     font-size: var(--FS_TEXT);
     width: 100%;
-    height: 35px;
+    height: 40px;
     border-radius: var(--BR_BASE);
     margin-bottom: 5px;
     padding: 5px 10px;
@@ -1014,13 +1016,12 @@ header::before {
   }
 
   .ActiveButton {
-    border: solid 1px var(--LG_AIR_BORDER_COLOR);
-    color: var(--TEXT_COLOR);
+    color: var(--ACCENT_COLOR);
     box-shadow: var(--BLOCK_SHADOW);
 
     .UI-LN_ICON {
       svg {
-        fill: var(--TEXT_COLOR);
+        fill: var(--ACCENT_COLOR);
       }
     }
   }
@@ -1063,6 +1064,7 @@ header::before {
 .UI-EmojiPicker {
   background: var(--LG_AIR_COLOR);
   border-radius: var(--LG_AIR_BORDER_RADIUS);
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
   backdrop-filter: var(--LG_AIR_BLUR);
   corner-shape: var(--LG_CORNER_SHAPE);
   box-shadow: var(--AIR_SHADOW);
@@ -1111,6 +1113,7 @@ header::before {
     background: var(--AIR_COLOR);
     corner-shape: superellipse(1.1);
     border: 1px solid var(--AIR_BLOCK_COLOR);
+    -webkit-backdrop-filter: var(--AIR_BLUR);
     backdrop-filter: var(--AIR_BLUR);
     min-width: unset;
     flex: 1;
@@ -1311,7 +1314,9 @@ header::before {
 }
 
 .UI-Bubble {
-  border: solid 1px var(--LG_AIR_BORDER_COLOR);
+  min-height: 30px;
+  //border: solid 1px var(--LG_AIR_BORDER_COLOR);
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
   backdrop-filter: var(--LG_AIR_BLUR);
   corner-shape: superellipse(1);
   border-radius: var(--BR_BASE);
@@ -1475,6 +1480,7 @@ header::before {
 .UI-Block {
   background-color: transparent;
   border: solid 1px var(--LG_AIR_BORDER_COLOR);
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
   backdrop-filter: var(--LG_AIR_BLUR);
 
   border-radius: var(--BR_BASE);
@@ -1530,6 +1536,7 @@ header::before {
 }
 
 .UI-LG_Block {
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
   backdrop-filter: var(--LG_AIR_BLUR);
   background-color: var(--LG_AIR_BLOCK_COLOR);
   border: 1px solid var(--LG_AIR_BORDER_COLOR);
@@ -1771,6 +1778,7 @@ header::before {
 .ToastNotifications-Close {
   background: var(--LG_AIR_COLOR);
   border-radius: var(--LG_AIR_BORDER_RADIUS);
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
   backdrop-filter: var(--LG_AIR_BLUR);
   box-shadow: var(--AIR_SHADOW);
   margin: 0;
@@ -1827,6 +1835,7 @@ header::before {
 
 .UI-Window {
   background: var(--AIR_COLOR);
+  -webkit-backdrop-filter: var(--AIR_BLUR);
   backdrop-filter: var(--AIR_BLUR);
   border-radius: 30px;
   corner-shape: var(--LG_CORNER_SHAPE);
@@ -2429,6 +2438,7 @@ header::before {
 
 .UI-AD_TITLE {
   background: var(--AIR_COLOR);
+  -webkit-backdrop-filter: saturate(200%) blur(10px);
   backdrop-filter: saturate(200%) blur(10px);
   color: var(--TITLE_COLOR);
   width: fit-content;
@@ -2439,6 +2449,7 @@ header::before {
 
 .UI-AD_BTN {
   background: var(--AIR_COLOR);
+  -webkit-backdrop-filter: saturate(200%) blur(10px);
   backdrop-filter: saturate(200%) blur(10px);
   color: var(--TITLE_COLOR);
   width: 100%;
@@ -3769,6 +3780,7 @@ header::before {
   .Settings,
   .VideoInfo {
     background: rgb(0 0 0 / 30%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
     backdrop-filter: blur(20px) saturate(200%);
     border-radius: var(--BR_BASE);
     position: absolute;
@@ -3880,6 +3892,7 @@ header::before {
 
   .Blur {
     height: 70px;
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
     backdrop-filter: blur(20px) saturate(200%);
     mask-image: linear-gradient(
       to top,
@@ -4112,6 +4125,7 @@ header::before {
 .UserContent-Image .Censoring,
 .UserContent-Images .Censoring {
   background: rgb(201 201 201 / 28%);
+  -webkit-backdrop-filter: 10px;
   backdrop-filter: blur(10px);
   border-radius: var(--BR_BASE);
   corner-shape: var(--LG_CORNER_SHAPE);
@@ -4681,6 +4695,7 @@ header::before {
         height: 40px;
         background: none;
         box-shadow: none;
+        -webkit-backdrop-filter: none;
         backdrop-filter: none;
         border-radius: 50%;
         display: flex;
@@ -4944,6 +4959,8 @@ body.dragging .DragDropArea {
 }
 
 .Profile-InfoBlock {
+  display: flex;
+
   height: fit-content;
   position: relative;
   display: flex;
@@ -5030,7 +5047,8 @@ body.dragging .DragDropArea {
 }
 
 .Profile-InfoBlock .UI-GovernButtons {
-  right: 0;
+  background-color: rgb(58, 56, 56);
+  z-index: 900;
 }
 
 .Profile-InfoBlock .Info {
@@ -5076,6 +5094,7 @@ body.dragging .DragDropArea {
 
   .Question {
     background: var(--AIR_COLOR);
+    -webkit-backdrop-filter: var(--AIR_BLUR);
     backdrop-filter: var(--AIR_BLUR);
     border-radius: var(--BR_BASE);
     width: 100%;
@@ -5598,9 +5617,13 @@ body.dragging .DragDropArea {
 
   .UI-L_NAV {
     background: var(--AIR_COLOR);
+    -webkit-backdrop-filter: var(--AIR_BLUR);
     backdrop-filter: var(--AIR_BLUR);
     max-width: 100%;
     width: fit-content;
+
+    min-height: 50px;
+
     border-radius: 25px;
     corner-shape: var(--LG_CORNER_SHAPE);
     padding: 5px;
@@ -5633,7 +5656,7 @@ body.dragging .DragDropArea {
       background: rgb(255 255 255 / 0%);
       margin: 0;
       width: 70px;
-      height: 80%;
+      height: 50px;
       font-size: 10px;
       display: flex;
       flex-direction: column;
@@ -6678,4 +6701,184 @@ body.dragging .DragDropArea {
   transform: scaleX(
     -1
   ); /* Отражает символ по горизонтали, превращая в копилефт */
+}
+
+/* Интерфейс */
+
+header::before {
+  background: #000;
+}
+
+.UI-Logo {
+  background-image: url("../Images/DarkLogo.svg");
+}
+
+.UI-Blur {
+  background: rgb(0 0 0 / 23%);
+}
+
+.Notifications-NewNotification {
+  background: rgb(43 43 43);
+}
+
+.UI-Switch {
+  background: rgb(76 76 76 / 50%);
+  border: 1px solid rgb(71 71 71 / 50%);
+}
+
+.UI-Switch-On {
+  background: var(--ACCENT_COLOR);
+  border: 0px solid rgba(255, 255, 255, 0);
+}
+
+.UI-Tabs .Tab {
+  color: rgb(145 145 145 / 70%);
+}
+
+.UI-Tabs .ActiveTab {
+  color: var(--BTN_TEXT_COLOR);
+  box-shadow: 0px 0px 3px rgb(40 40 40 / 60%);
+}
+
+.UI-PRELOAD {
+  background: rgb(100 100 100);
+}
+
+.UI-PRELOAD::after {
+  background: rgb(212 212 212 / 40%);
+}
+
+.UI-PartitionName {
+  color: var(--BLOCK_COLOR_LITE_TEXT);
+}
+
+.UI-GovernButtons .Container button {
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Интерфейс - Текстовый инпут */
+
+.UI-Input:hover,
+.UI-Input:focus {
+  outline: 2px solid rgb(62 62 62 / 80%);
+}
+
+/* Интерфейс - Ошибка */
+
+.UI-Window_BG {
+  background: rgb(0 0 0 / 50%);
+}
+
+.UI-E_IMG {
+  filter: contrast(1);
+}
+
+/* Пост */
+
+.Post .InteractionButtons .Liked {
+  background: rgb(113 101 132 / 30%);
+}
+
+.Post .Image .Censoring,
+.Blur {
+  background: rgb(0 0 0 / 28%);
+}
+
+/* Чат */
+
+.Chat-Error_message {
+  background: var(--BTN_BACKGROUND);
+}
+
+.Chat-M_URS {
+  background: var(--BTN_BACKGROUND);
+  color: #fff;
+}
+
+.Chat-M_Me .Loader,
+.Chat-M_URS .Loader {
+  background: var(--BTN_BACKGROUND);
+}
+
+/* Панель управления */
+
+.Dashboard-Block svg {
+  fill: rgb(84 84 84);
+}
+
+.Dashboard-SK_NA {
+  background: linear-gradient(
+    90deg,
+    var(--BTN_BACKGROUND) 60%,
+    rgb(68 122 60) 100%
+  );
+}
+
+.Dashboard-SK_A {
+  background: linear-gradient(
+    90deg,
+    var(--BTN_BACKGROUND) 60%,
+    rgb(106 48 48) 100%
+  );
+}
+
+/* Настройки */
+
+.Settings-CP_Cover .Settings-ChangeButtons .Button {
+  background: rgb(56 56 56);
+  color: #fff;
+}
+
+.Settings-CP_Cover .Settings-ChangeButtons .ButtonDL {
+  color: #fff;
+}
+
+.UI-QuestionModal .Back {
+  background: rgb(76 76 76 / 50%);
+}
+
+.Settings-CP_Input_container .Title {
+  color: rgb(174 174 174 / 70%);
+}
+
+/* Музыка */
+
+.Music-FullPlayer_BG_Blur {
+  background: rgb(39 39 39 / 40%);
+}
+
+.Music-SongPrev .Cover .CoverShadow {
+  filter: blur(10px) brightness(0.6);
+}
+
+/* Подписка */
+
+.GoldSub-User {
+  background: linear-gradient(
+    114deg,
+    rgb(221 183 127 / 10%) 60%,
+    rgb(112 89 42 / 60%)
+  );
+}
+
+.GoldSub-Buttons {
+  .Pay {
+    box-shadow: 0px 0px 9px -1px rgb(147 89 31);
+    -moz-box-shadow: 0px 0px 9px -1px rgb(147 89 31);
+    -webkit-box-shadow: 0px 0px 9px -1px rgb(147 89 31);
+  }
+
+  .Activate {
+    background: rgb(76 76 76 / 50%);
+  }
+}
+
+@media only screen and (max-device-width: 768px),
+  only screen and (device-width: 768px) and (device-height: 768px),
+  only screen and (width: 768px) and (orientation: landscape),
+  only screen and (device-width: 768px),
+  only screen and (max-width: 768px) {
+  .UI-L_NAV button {
+    background: rgb(255 255 255 / 0%);
+  }
 }

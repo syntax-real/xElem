@@ -6,9 +6,7 @@ import {
   I_SETTINGS,
   I_EPACK,
   I_PANEL,
-  I_APPS,
   I_GOLD_STAR_GRADIENT,
-  I_HALL,
   I_NOTIFICATIONS,
   I_WALLET,
 } from "../../System/UI/IconPack";
@@ -156,23 +154,6 @@ export const LeftBar: React.FC = () => {
           <I_SETTINGS />
         </div>
         {t("nav_settings")}
-      </LeftNavButton>
-      <LeftNavButton className="MobileHidden" target="/epack">
-        <div className="UI-LN_ICON">
-          <I_EPACK />
-        </div>
-        {t("nav_epack")}
-      </LeftNavButton>
-      <LeftNavButton className="MobileHidden" target="/gold">
-        <div className="GoldText">
-          <div className="UI-LN_ICON">
-            <I_GOLD_STAR_GRADIENT
-              startColor={"#fab31e"}
-              stopColor={"#fd9347"}
-            />
-          </div>
-          {t("nav_subscribe")}
-        </div>
       </LeftNavButton>
     </div>
   );

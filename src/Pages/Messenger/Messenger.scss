@@ -4,601 +4,604 @@
 
 // Кнопки звонка в TopBar
 .TopBar-CallBtn {
-   background: none;
-   border: none;
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 32px;
-   height: 32px;
-   border-radius: 50%;
-   color: var(--TEXT_COLOR);
-   opacity: 0.55;
-   transition:
-      opacity 0.15s,
-      background 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--TEXT_COLOR);
+  opacity: 0.55;
+  transition:
+    opacity 0.15s,
+    background 0.15s;
 
-   svg {
-      width: 17px;
-      height: 17px;
-      fill: currentColor;
-   }
+  svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+  }
 
-   &:hover {
-      opacity: 1;
-      background: var(--AIR_BLOCK_COLOR);
-   }
+  &:hover {
+    opacity: 1;
+    background: var(--AIR_BLOCK_COLOR);
+  }
 
-   &.is-active {
-      opacity: 1;
-      background: var(--AIR_BLOCK_COLOR);
-      color: var(--ACCENT_COLOR);
-   }
+  &.is-active {
+    opacity: 1;
+    background: var(--AIR_BLOCK_COLOR);
+    color: var(--ACCENT_COLOR);
+  }
 }
 
 // Оверлей звонка (поверх всего)
 .Call-Overlay {
-   position: fixed;
-   inset: 0;
-   z-index: 200;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background:
-      radial-gradient(
-         1200px 600px at 50% 100%,
-         rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.2),
-         transparent 70%
-      ),
-      rgba(0, 0, 0, 0.6);
-   backdrop-filter: blur(16px);
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      1200px 600px at 50% 100%,
+      rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.2),
+      transparent 70%
+    ),
+    rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 // Основной контейнер модала
 .Call-Modal {
-   background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(0, 0, 0, 0.08)),
-      var(--BLOCK_COLOR);
-   border: 1px solid rgba(255, 255, 255, 0.08);
-   border-radius: 24px;
-   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
-   display: flex;
-   flex-direction: column;
-   overflow: hidden;
-   width: 100%;
-   max-width: 420px;
-   position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(0, 0, 0, 0.08)),
+    var(--BLOCK_COLOR);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
 
-   &--video {
-      max-width: 900px;
-   }
+  &--video {
+    max-width: 900px;
+  }
 
-   &::before {
-      content: '';
-      position: absolute;
-      left: -25%;
-      right: -25%;
-      top: -45%;
-      height: 65%;
-      background: radial-gradient(
-         closest-side,
-         rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.18),
-         transparent 72%
-      );
-      pointer-events: none;
-   }
+  &::before {
+    content: "";
+    position: absolute;
+    left: -25%;
+    right: -25%;
+    top: -45%;
+    height: 65%;
+    background: radial-gradient(
+      closest-side,
+      rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.18),
+      transparent 72%
+    );
+    pointer-events: none;
+  }
 }
 
 // Тело модала (аудио / входящий / исходящий)
 .Call-Body {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 48px 32px 24px;
-   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px 24px;
+  position: relative;
 }
 
 .Call-MinimizeBtn {
-   position: absolute;
-   top: 16px;
-   right: 16px;
-   background: var(--AIR_BLOCK_COLOR);
-   border: none;
-   border-radius: 50%;
-   width: 32px;
-   height: 32px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-   color: var(--TEXT_COLOR);
-   opacity: 0.6;
-   transition: opacity 0.15s;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--AIR_BLOCK_COLOR);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--TEXT_COLOR);
+  opacity: 0.6;
+  transition: opacity 0.15s;
 
-   &:hover {
-      opacity: 1;
-   }
+  &:hover {
+    opacity: 1;
+  }
 }
 
 // Аватар с волнами
 .Call-Avatar-Container {
-   position: relative;
-   width: 120px;
-   height: 120px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-bottom: 20px;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .Call-Wave {
-   position: absolute;
-   inset: 0;
-   border-radius: 50%;
-   animation: callWave 2s ease-out infinite;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: callWave 2s ease-out infinite;
 
-   &--1 {
-      background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.25);
-      animation-delay: 0s;
-   }
-   &--2 {
-      background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.15);
-      animation-delay: 0.5s;
-   }
-   &--incoming-1 {
-      background: rgba(34, 197, 94, 0.25);
-      animation-delay: 0s;
-   }
-   &--incoming-2 {
-      background: rgba(34, 197, 94, 0.15);
-      animation-delay: 0.5s;
-   }
+  &--1 {
+    background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.25);
+    animation-delay: 0s;
+  }
+  &--2 {
+    background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.15);
+    animation-delay: 0.5s;
+  }
+  &--incoming-1 {
+    background: rgba(34, 197, 94, 0.25);
+    animation-delay: 0s;
+  }
+  &--incoming-2 {
+    background: rgba(34, 197, 94, 0.15);
+    animation-delay: 0.5s;
+  }
 }
 
 @keyframes callWave {
-   0% {
-      transform: scale(1);
-      opacity: 1;
-   }
-   100% {
-      transform: scale(1.6);
-      opacity: 0;
-   }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
 .Call-Avatar-Inner {
-   position: relative;
-   z-index: 1;
+  position: relative;
+  z-index: 1;
 
-   .Avatar {
-      width: 80px;
-      height: 80px;
-      font-size: 32px;
-   }
+  .Avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
 }
 
 .Call-Name {
-   font-size: 20px;
-   font-weight: 700;
-   color: var(--TEXT_COLOR);
-   margin-bottom: 6px;
-   text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--TEXT_COLOR);
+  margin-bottom: 6px;
+  text-align: center;
 }
 
 .Call-Status {
-   font-size: 14px;
-   color: var(--ACCENT_COLOR);
-   font-weight: 500;
-   margin-bottom: 16px;
-   text-align: center;
-   min-height: 20px;
+  font-size: 14px;
+  color: var(--ACCENT_COLOR);
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+  min-height: 20px;
 }
 
 // Превью своей камеры при исходящем звонке
 .Call-LocalPreview {
-   border-radius: 12px;
-   overflow: hidden;
-   width: 140px;
-   background: #000;
-   margin-bottom: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 140px;
+  background: #000;
+  margin-bottom: 8px;
 }
 
 .Call-LocalPreview-Video {
-   width: 100%;
-   height: auto;
-   display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 // Видео область
 .Call-Video-Area {
-   position: relative;
-   width: 100%;
-   aspect-ratio: 16 / 9;
-   background: #000;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
 }
 
 .Call-Video-Remote {
-   position: absolute;
-   inset: 0;
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .Call-Video-NoRemote {
-   position: absolute;
-   inset: 0;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   gap: 8px;
-   color: rgba(255, 255, 255, 0.4);
-   font-size: 13px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
 
-   svg {
-      width: 40px;
-      height: 40px;
-   }
+  svg {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .Call-Video-PIP {
-   position: absolute;
-   bottom: 12px;
-   right: 12px;
-   width: 120px;
-   aspect-ratio: 16 / 9;
-   border-radius: 8px;
-   overflow: hidden;
-   border: 2px solid rgba(255, 255, 255, 0.2);
-   background: #111;
-   z-index: 10;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: #111;
+  z-index: 10;
 }
 
 .Call-Video-Local {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .Call-Video-Timer {
-   position: absolute;
-   top: 12px;
-   left: 50%;
-   transform: translateX(-50%);
-   background: rgba(0, 0, 0, 0.5);
-   backdrop-filter: blur(4px);
-   border-radius: 20px;
-   padding: 4px 12px;
-   font-size: 13px;
-   color: #fff;
-   font-weight: 500;
-   z-index: 10;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+  z-index: 10;
 }
 
 .Call-Video-TopRight {
-   position: absolute;
-   top: 12px;
-   right: 12px;
-   display: flex;
-   gap: 6px;
-   z-index: 10;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
 }
 
 // Кнопки управления
 .Call-Controls {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 12px;
-   border-top: 1px solid rgba(255, 255, 255, 0.06);
-   background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.02),
-      rgba(255, 255, 255, 0)
-   );
-   padding: 20px 24px 28px;
-   flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  padding: 20px 24px 28px;
+  flex-wrap: wrap;
 }
 
 // Универсальная кнопка звонка
 .Call-Btn {
-   border: none;
-   border-radius: 50%;
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   transition:
-      transform 0.1s,
-      opacity 0.15s,
-      background 0.15s,
-      box-shadow 0.15s;
-   flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.1s,
+    opacity 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+  flex-shrink: 0;
 
-   &:active {
-      transform: scale(0.91);
-   }
+  &:active {
+    transform: scale(0.91);
+  }
 
-   &:hover {
-      transform: translateY(-1px);
-   }
+  &:hover {
+    transform: translateY(-1px);
+  }
 
-   svg {
-      fill: currentColor;
-   }
+  svg {
+    fill: currentColor;
+  }
 
-   // Размеры
-   &--lg {
-      width: 56px;
-      height: 56px;
-      svg {
-         width: 22px;
-         height: 22px;
-      }
-   }
-   &--md {
-      width: 42px;
-      height: 42px;
-      svg {
-         width: 18px;
-         height: 18px;
-      }
-   }
-   &--sm {
-      width: 34px;
-      height: 34px;
-      svg {
-         width: 15px;
-         height: 15px;
-      }
-   }
+  // Размеры
+  &--lg {
+    width: 56px;
+    height: 56px;
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  &--md {
+    width: 42px;
+    height: 42px;
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  &--sm {
+    width: 34px;
+    height: 34px;
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
 
-   // Цвета
-   &--accept {
-      background: #22c55e;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
-   }
-   &--end {
-      background: #ef4444;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
-   }
-   &--control {
-      background: var(--AIR_BLOCK_COLOR);
-      color: var(--TEXT_COLOR);
-      &:hover {
-         opacity: 1;
-         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
-      }
-   }
-   &--muted {
-      background: rgba(239, 68, 68, 0.15);
-      color: #ef4444;
-   }
-   &--active {
-      background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.2);
-      color: var(--ACCENT_COLOR);
-   }
+  // Цвета
+  &--accept {
+    background: #22c55e;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+  }
+  &--end {
+    background: #ef4444;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+  }
+  &--control {
+    background: var(--AIR_BLOCK_COLOR);
+    color: var(--TEXT_COLOR);
+    &:hover {
+      opacity: 1;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+    }
+  }
+  &--muted {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+  }
+  &--active {
+    background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.2);
+    color: var(--ACCENT_COLOR);
+  }
 }
 
 // Свёрнутый вид (pip в углу экрана)
 .Call-Minimized {
-   position: fixed;
-   bottom: 24px;
-   right: 24px;
-   z-index: 300;
-   background: var(--BLOCK_COLOR);
-   border-radius: 16px;
-   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-   padding: 10px 14px;
-   display: flex;
-   align-items: center;
-   gap: 10px;
-   cursor: pointer;
-   user-select: none;
-   min-width: 220px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 300;
+  background: var(--BLOCK_COLOR);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 220px;
 }
 
 .Call-Minimized_Avatar {
-   position: relative;
-   flex-shrink: 0;
+  position: relative;
+  flex-shrink: 0;
 
-   .Avatar {
-      width: 38px;
-      height: 38px;
-      font-size: 16px;
-      position: relative;
-      z-index: 1;
-   }
+  .Avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .Call-Minimized_Wave {
-   position: absolute;
-   inset: -4px;
-   border-radius: 50%;
-   background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.3);
-   animation: callWave 2s ease-out infinite;
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.3);
+  animation: callWave 2s ease-out infinite;
 }
 
 .Call-Minimized_Info {
-   flex: 1;
-   min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .Call-Minimized_Name {
-   font-size: 13px;
-   font-weight: 600;
-   color: var(--TEXT_COLOR);
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--TEXT_COLOR);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Call-Minimized_Duration {
-   font-size: 12px;
-   color: var(--ACCENT_COLOR);
-   font-family: monospace;
+  font-size: 12px;
+  color: var(--ACCENT_COLOR);
+  font-family: monospace;
 }
 
 .Call-Minimized_Actions {
-   display: flex;
-   gap: 6px;
+  display: flex;
+  gap: 6px;
 }
 
 // ===== ГРУППОВОЙ ЗВОНОК =====
 
 .Call-Modal--group {
-   max-width: 720px;
-   width: 95vw;
+  max-width: 720px;
+  width: 95vw;
 }
 
 // Шапка активного группового звонка
 .Call-Body--group-header {
-   padding: 24px 32px 16px;
-   flex-direction: row;
-   justify-content: center;
-   align-items: baseline;
-   gap: 8px;
+  padding: 24px 32px 16px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
 
-   .Call-Name {
-      margin-bottom: 0;
-      font-size: 18px;
-   }
+  .Call-Name {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
 
-   .Call-Status {
-      margin-bottom: 0;
-      font-size: 12px;
-      line-height: 1;
-      border-radius: 999px;
-      padding: 6px 9px;
-      background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.16);
-      border: 1px solid rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.3);
-   }
+  .Call-Status {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 999px;
+    padding: 6px 9px;
+    background: rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.16);
+    border: 1px solid rgba(var(--ACCENT_COLOR_RGB, 120, 80, 220), 0.3);
+  }
 }
 
 // Сетка участников
 .GroupCall-Grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-   gap: 10px;
-   padding: 8px 16px 10px;
-   max-height: 420px;
-   overflow-y: auto;
-   background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0)
-   );
-   border-top: 1px solid rgba(255, 255, 255, 0.04);
-   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  padding: 8px 16px 10px;
+  max-height: 420px;
+  overflow-y: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 // Тайл одного участника
 .GroupCall-Tile {
-   position: relative;
-   border-radius: 16px;
-   overflow: hidden;
-   background: var(--AIR_BLOCK_COLOR);
-   aspect-ratio: 4 / 3;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--AIR_BLOCK_COLOR);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-   &--local {
-      outline: 2px solid var(--ACCENT_COLOR);
-      outline-offset: -2px;
-   }
+  &--local {
+    outline: 2px solid var(--ACCENT_COLOR);
+    outline-offset: -2px;
+  }
 
-   &--pending {
-      filter: grayscale(0.85);
-      opacity: 0.62;
-      animation: groupTilePendingPulse 1.6s ease-in-out infinite;
-   }
+  &--pending {
+    filter: grayscale(0.85);
+    opacity: 0.62;
+    animation: groupTilePendingPulse 1.6s ease-in-out infinite;
+  }
 }
 
 .GroupCall-Tile-Video {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-   background: #000;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
 }
 
 .GroupCall-Tile-Fallback {
-   position: absolute;
-   inset: 0;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   gap: 8px;
-   color: rgba(255, 255, 255, 0.45);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .GroupCall-Tile-NoVideo {
-   width: 30px;
-   height: 30px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   opacity: 0.75;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
 
-   svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-   }
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
 }
 
 .GroupCall-Tile-Avatar {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 100%;
-   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .GroupCall-Tile-Name {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   padding: 20px 10px 8px;
-   font-size: 12px;
-   font-weight: 600;
-   color: #fff;
-   background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
-   text-align: center;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 10px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .GroupCall-Tile-Pending {
-   position: absolute;
-   top: 8px;
-   left: 8px;
-   padding: 4px 8px;
-   border-radius: 999px;
-   font-size: 10px;
-   font-weight: 600;
-   text-transform: uppercase;
-   letter-spacing: 0.25px;
-   color: #fff;
-   background: rgba(0, 0, 0, 0.5);
-   backdrop-filter: blur(6px);
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 @keyframes groupTilePendingPulse {
-   0%,
-   100% {
-      opacity: 0.56;
-   }
-   50% {
-      opacity: 0.78;
-   }
+  0%,
+  100% {
+    opacity: 0.56;
+  }
+  50% {
+    opacity: 0.78;
+  }
 }
 
 // ===== КОНЕЦ ЗВОНКОВ =====
@@ -606,2656 +609,2662 @@
 // Typing indicator
 
 .Chat-Typing {
-   color: var(--ACCENT_COLOR);
-   font-size: 13px;
-   font-weight: 600;
+  color: var(--ACCENT_COLOR);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .Chat-Typing-Text {
-   display: inline-flex;
-   align-items: baseline;
+  display: inline-flex;
+  align-items: baseline;
 }
 
 .Chat-Typing-Dot {
-   display: inline-block;
-   animation: typing-dot-fade 1.2s ease-in-out infinite;
+  display: inline-block;
+  animation: typing-dot-fade 1.2s ease-in-out infinite;
 
-   &:nth-child(2) {
-      animation-delay: 0.2s;
-   }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
 
-   &:nth-child(3) {
-      animation-delay: 0.4s;
-   }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
 
-   &:nth-child(4) {
-      animation-delay: 0.6s;
-   }
+  &:nth-child(4) {
+    animation-delay: 0.6s;
+  }
 }
 
 @keyframes typing-dot-fade {
-   0%,
-   60%,
-   100% {
-      opacity: 0.3;
-      transform: translateY(0);
-   }
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
 
-   30% {
-      opacity: 1;
-      transform: translateY(-2px);
-   }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
 }
 
 // Общие элементы
 
 .SavesAvatar {
-   background: var(--ACCENT_COLOR);
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  background: var(--ACCENT_COLOR);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-   svg {
-      fill: #fff;
-      width: 25px;
-      height: 25px;
-   }
+  svg {
+    fill: #fff;
+    width: 25px;
+    height: 25px;
+  }
 }
 
 // Основа
 
 .Messenger {
-   width: 100%;
-   height: 100%;
-   position: relative;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 // Список чатов
 
 .Chats {
-   background: var(--BLOCK_COLOR);
-   border-radius: 8px;
-   width: 100%;
-   max-width: 30vw;
-   height: 100%;
-   overflow: hidden;
-   position: relative;
+  background: var(--BLOCK_COLOR);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 30vw;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .Chats-List {
-   margin-top: 60px;
-   display: flex;
-   flex-direction: column;
-   gap: var(--PUSTOTA_WIDTH);
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--PUSTOTA_WIDTH);
 }
 
 .Chats-User {
-   background: var(--BLOCK_BLOCK_COLOR_LITE);
-   border-radius: var(--BR_BASE);
-   width: 100%;
-   padding: 5px 7px;
-   text-align: left;
-   cursor: pointer;
-   position: relative;
-   display: flex;
-   align-items: center;
-   transition: 0.1s;
+  background: var(--BLOCK_BLOCK_COLOR_LITE);
+  border-radius: var(--BR_BASE);
+  width: 100%;
+  padding: 5px 7px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.1s;
 
-   .Avatar {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      font-size: 20px;
-   }
+  .Avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
 
-   .UI-NCounter {
-      padding: 0px 5px;
-      margin: 10px 15px;
-      z-index: 0;
-      top: 0;
-      right: 0;
-   }
+  .UI-NCounter {
+    padding: 0px 5px;
+    margin: 10px 15px;
+    z-index: 0;
+    top: 0;
+    right: 0;
+  }
 }
 
 .Chats-UserSelected {
-   background: var(--AIR_BLOCK_COLOR);
+  background: var(--AIR_BLOCK_COLOR);
 }
 
 .Chats-User_New {
-   background: rgb(198 180 226 / 30%);
+  background: rgb(198 180 226 / 30%);
 }
 
 .Chats-Data {
-   margin: 5px 15px;
-   word-wrap: break-word;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  margin: 5px 15px;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Chats-Name {
-   color: var(--TEXT_COLOR);
-   font-family: var(--FF_TITLE);
-   margin-bottom: 3px;
+  color: var(--TEXT_COLOR);
+  font-family: var(--FF_TITLE);
+  margin-bottom: 3px;
 
-   .UI-PRELOAD {
-      width: 100px;
-      height: 13px;
-      margin-bottom: 3px;
-   }
+  .UI-PRELOAD {
+    width: 100px;
+    height: 13px;
+    margin-bottom: 3px;
+  }
 }
 
 .Chats-LastMessage {
-   color: var(--D_OR_P_COLOR);
-   font-size: 0.87em;
-   word-wrap: break-word;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  color: var(--D_OR_P_COLOR);
+  font-size: 0.87em;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-   .UI-PRELOAD {
-      width: 150px;
-      height: 13px;
-   }
+  .UI-PRELOAD {
+    width: 150px;
+    height: 13px;
+  }
 }
 
 // Чат
 
 .Chat-Container {
-   width: 100%;
-   height: 100%;
-   display: flex;
-   position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
 }
 
 .Chat-Content {
-   flex: 1;
-   height: 100%;
-   transition: flex 0.3s ease;
+  flex: 1;
+  height: 100%;
+  transition: flex 0.3s ease;
 }
 
 .Chat {
-   background: var(--BLOCK_COLOR);
-   width: 100%;
-   height: 100%;
-   overflow: hidden;
-   position: relative;
-   z-index: 2;
+  background: var(--BLOCK_COLOR);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .Chat-Wallpaper {
-   width: 100%;
-   height: 100%;
-   position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 
-   img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-   }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .Chat-Error {
-   background: var(--BLOCK_COLOR);
-   width: 100%;
-   height: 100%;
-   z-index: 3;
-   position: absolute;
-   display: flex;
-   justify-content: center;
-   position: absolute;
+  background: var(--BLOCK_COLOR);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  position: absolute;
 }
 
 .Chat-Error_message,
 .Chat-SelectKeyWord {
-   width: 100%;
-   height: fit-content;
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   margin: auto;
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .Chat-Error_message {
-   background: var(--BLOCK_BLOCK_COLOR);
-   color: var(--TEXT_COLOR);
-   font-size: var(--FS_TEXT);
-   max-width: 85%;
-   width: fit-content;
-   padding: 10px;
-   border-radius: var(--BR_BASE);
+  background: var(--BLOCK_BLOCK_COLOR);
+  color: var(--TEXT_COLOR);
+  font-size: var(--FS_TEXT);
+  max-width: 85%;
+  width: fit-content;
+  padding: 10px;
+  border-radius: var(--BR_BASE);
 }
 
 .Chat-SelectKeyWord {
-   width: 85%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Chat-SelectKeyWord .Title {
-   font-size: 0.9em;
-   text-align: center;
-   margin-bottom: 15px;
+  font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .Chat-SelectKeyWord textarea {
-   width: 100%;
-   padding: 10px;
-   resize: none;
+  width: 100%;
+  padding: 10px;
+  resize: none;
 }
 
 .Chat-SelectKeyWord .Buttons {
-   width: 100%;
-   margin-top: 10px;
-   gap: var(--PUSTOTA_WIDTH);
-   display: flex;
-   flex-direction: row;
+  width: 100%;
+  margin-top: 10px;
+  gap: var(--PUSTOTA_WIDTH);
+  display: flex;
+  flex-direction: row;
 
-   button {
-      width: 100%;
-   }
+  button {
+    width: 100%;
+  }
 }
 
 .Chat-TopBar,
 .Chat-BottomBar {
-   width: 100%;
-   position: absolute;
-   z-index: 3;
-   user-select: none;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  user-select: none;
 }
 .Chat-TopBar::before,
 .Chat-BottomBar::before {
-   background: var(--AIR_COLOR);
-   content: '';
-   position: absolute;
-   inset: 0;
+  background: var(--AIR_COLOR);
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .Chat-TopBar::before {
-   mask: var(--TOP_GRADIENT_MASK);
+  mask: var(--TOP_GRADIENT_MASK);
 }
 .Chat-BottomBar::before {
-   mask: var(--BOTTOM_GRADIENT_MASK);
+  mask: var(--BOTTOM_GRADIENT_MASK);
 }
 
 .Chat-Menu {
-   width: 100%;
-   padding: 50px 10px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background: var(--BLOCK_COLOR);
-   z-index: 4;
-   overflow-y: auto;
+  width: 100%;
+  padding: 50px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--BLOCK_COLOR);
+  z-index: 4;
+  overflow-y: auto;
 
-   .Invitations,
-   .GroupMembers {
+  .Invitations,
+  .GroupMembers {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .GroupMembers {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .Member {
+      background: var(--BLOCK_BLOCK_COLOR_LITE);
       width: 100%;
-      height: fit-content;
-   }
-
-   .GroupMembers {
+      border-radius: 100px;
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
 
-      .Member {
-         background: var(--BLOCK_BLOCK_COLOR_LITE);
-         width: 100%;
-         border-radius: 100px;
-         display: flex;
-         flex-direction: row;
-         align-items: center;
-         gap: 10px;
-
-         .Avatar {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-         }
+      .Avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
       }
-   }
+    }
+  }
 
-   .Invitations {
-      .UI-Input {
-         width: 100%;
-      }
-   }
+  .Invitations {
+    .UI-Input {
+      width: 100%;
+    }
+  }
 }
 
 .Chat-TopBar {
-   padding: 8px 18px;
-   align-items: center;
-   top: 0;
-   display: flex;
-   justify-content: space-between;
+  padding: 8px 18px;
+  align-items: center;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
 
-   .UI-Bubble {
-      height: 50px;
-      min-width: 50px;
-   }
+  .UI-Bubble {
+    height: 50px;
+    min-width: 50px;
+  }
 
-   .UI-BackButton {
-      svg {
-         margin-left: 0px;
-         margin-right: 0px;
-      }
-   }
+  .UI-BackButton {
+    svg {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
 
-   .Avatar {
-      width: 40px;
-      height: 40px;
-   }
+  .Avatar {
+    width: 40px;
+    height: 40px;
+  }
 
-   .TopBar-Actions {
+  .TopBar-Actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+    .MenuButton {
+      background: transparent;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 10px;
-      position: relative;
+      justify-content: center;
+      transition: background-color 0.2s;
 
-      .MenuButton {
-         background: transparent;
-         width: 30px;
-         height: 30px;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         transition: background-color 0.2s;
-
-         &:hover {
-            background-color: var(--AIR_BLOCK_COLOR);
-         }
-
-         svg {
-            fill: var(--TEXT_COLOR);
-            width: 18px;
-            height: 18px;
-         }
+      &:hover {
+        background-color: var(--AIR_BLOCK_COLOR);
       }
 
-      .TopBar-Menu {
-         position: absolute;
-         top: 40px;
-         right: 0;
-         background: var(--BLOCK_COLOR);
-         border-radius: 8px;
-         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-         min-width: 180px;
-         z-index: 100;
-         overflow: hidden;
-
-         button {
-            width: 100%;
-            text-align: left;
-            padding: 12px 15px;
-            background: transparent;
-            border-bottom: 1px solid var(--AIR_BLOCK_COLOR);
-            transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            &:last-child {
-               border-bottom: none;
-            }
-
-            &:hover {
-               background-color: var(--AIR_BLOCK_COLOR);
-            }
-
-            svg {
-               fill: var(--TEXT_COLOR);
-               width: 18px;
-               height: 18px;
-            }
-         }
+      svg {
+        fill: var(--TEXT_COLOR);
+        width: 18px;
+        height: 18px;
       }
-   }
+    }
+
+    .TopBar-Menu {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: var(--BLOCK_COLOR);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      min-width: 180px;
+      z-index: 100;
+      overflow: hidden;
+
+      button {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+        background: transparent;
+        border-bottom: 1px solid var(--AIR_BLOCK_COLOR);
+        transition: background-color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: var(--AIR_BLOCK_COLOR);
+        }
+
+        svg {
+          fill: var(--TEXT_COLOR);
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
 }
 
 .Chat-TB_Data {
-   margin: 0px 15px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  margin: 0px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-   .Chat-Name,
-   .Avatar {
-      cursor: pointer;
-   }
+  .Chat-Name,
+  .Avatar {
+    cursor: pointer;
+  }
 
-   .Chat-Name {
-      margin-bottom: 1px;
-      font-size: 1.1em;
-   }
+  .Chat-Name {
+    margin-bottom: 1px;
+    font-size: 1.1em;
+  }
 
-   .Chat-Status {
-      color: var(--D_OR_P_COLOR);
-      font-size: 0.85em;
-   }
+  .Chat-Status {
+    color: var(--D_OR_P_COLOR);
+    font-size: 0.85em;
+  }
 }
 
 .Chat-SelectedFiles {
-   width: 100%;
-   display: flex;
-   flex-direction: row;
-   gap: 10px;
-   overflow-x: auto;
-   margin-bottom: 10px;
-   padding: 0 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 10px;
+  padding: 0 10px;
 
-   .File {
-      background: var(--BLOCK_COLOR);
-      border-radius: var(--BR_BASE);
-      padding: 8px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.2s ease;
+  .File {
+    background: var(--BLOCK_COLOR);
+    border-radius: var(--BR_BASE);
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
 
-      &.ImageFile {
-         max-width: 180px;
-
-         .Metadata {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 5px 8px;
-            color: white;
-            border-radius: 0 0 var(--BR_BASE) var(--BR_BASE);
-            opacity: 0;
-            transform: translateY(100%);
-            transition: all 0.2s ease;
-
-            .Name,
-            .Size {
-               color: white;
-            }
-         }
-
-         &:hover .Metadata {
-            opacity: 1;
-            transform: translateY(0);
-         }
-      }
-
-      .ImagePreview {
-         width: 100%;
-         height: 120px;
-         object-fit: cover;
-         border-radius: var(--BR_BASE);
-      }
-
-      .Icon,
-      svg {
-         min-width: 36px;
-         min-height: 36px;
-         max-width: 36px;
-         max-height: 36px;
-         border-radius: 8px;
-         object-fit: cover;
-      }
+    &.ImageFile {
+      max-width: 180px;
 
       .Metadata {
-         flex-direction: column;
-         display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 5px 8px;
+        color: white;
+        border-radius: 0 0 var(--BR_BASE) var(--BR_BASE);
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 0.2s ease;
 
-         .Name {
-            font-size: 14px;
-            white-space: nowrap;
-            max-width: 150px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-         }
-
-         .Size {
-            font-size: 12px;
-            opacity: 0.7;
-         }
+        .Name,
+        .Size {
+          color: white;
+        }
       }
 
+      &:hover .Metadata {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ImagePreview {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--BR_BASE);
+    }
+
+    .Icon,
+    svg {
+      min-width: 36px;
+      min-height: 36px;
+      max-width: 36px;
+      max-height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .Metadata {
+      flex-direction: column;
+      display: flex;
+
+      .Name {
+        font-size: 14px;
+        white-space: nowrap;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .Size {
+        font-size: 12px;
+        opacity: 0.7;
+      }
+    }
+
+    .RemoveFile {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--ACCENT_COLOR);
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s ease;
+      z-index: 2;
+
+      svg {
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        min-height: 12px;
+      }
+    }
+
+    &:hover {
       .RemoveFile {
-         position: absolute;
-         top: 5px;
-         right: 5px;
-         width: 20px;
-         height: 20px;
-         min-width: 20px;
-         min-height: 20px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-         background-color: var(--ACCENT_COLOR);
-         color: white;
-         cursor: pointer;
-         opacity: 0;
-         transform: scale(0.8);
-         transition: all 0.2s ease;
-         z-index: 2;
-
-         svg {
-            width: 12px;
-            height: 12px;
-            min-width: 12px;
-            min-height: 12px;
-         }
+        opacity: 1;
+        transform: scale(1);
       }
-
-      &:hover {
-         .RemoveFile {
-            opacity: 1;
-            transform: scale(1);
-         }
-      }
-   }
+    }
+  }
 }
 
 .Chat-BottomBar {
-   padding: 8px 18px;
-   padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
-   bottom: 0;
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
-   flex-direction: column;
+  padding: 8px 18px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 
-   .Input {
-      width: 100%;
-      gap: 10px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      position: relative;
+  .Input {
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    position: relative;
 
-      &.dragging {
-         outline: 2px dashed var(--ACCENT_COLOR);
-         background-color: rgba(var(--ACCENT_COLOR_RGB), 0.05);
-         transition: all 0.2s ease;
-         border-radius: 15px;
-         padding: 10px;
-         transform: scale(1.01);
+    &.dragging {
+      outline: 2px dashed var(--ACCENT_COLOR);
+      background-color: rgba(var(--ACCENT_COLOR_RGB), 0.05);
+      transition: all 0.2s ease;
+      border-radius: 15px;
+      padding: 10px;
+      transform: scale(1.01);
 
-         &::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--ACCENT_COLOR);
-            font-size: 1.2em;
-            font-weight: bold;
-            pointer-events: none;
-            z-index: 2;
-            white-space: nowrap;
-         }
-
-         .SocialInput,
-         button {
-            opacity: 0.5;
-         }
+      &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--ACCENT_COLOR);
+        font-size: 1.2em;
+        font-weight: bold;
+        pointer-events: none;
+        z-index: 2;
+        white-space: nowrap;
       }
-   }
 
-   .UI-Input {
-      background: transparent;
-      width: 100%;
-   }
+      .SocialInput,
+      button {
+        opacity: 0.5;
+      }
+    }
+  }
 
-   .UI-Input:focus,
-   .UI-Input:hover {
-      outline: 0 !important;
-   }
+  .UI-Input {
+    background: transparent;
+    width: 100%;
+  }
 
-   button {
-      background: transparent;
-      width: 37px;
-      height: 37px;
-      corner-shape: superellipse(1);
-      border-radius: 100px;
-      flex-shrink: 0;
+  .UI-Input:focus,
+  .UI-Input:hover {
+    outline: 0 !important;
+  }
+
+  button {
+    background: transparent;
+    width: 37px;
+    height: 37px;
+    corner-shape: superellipse(1);
+    border-radius: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: var(--TEXT_COLOR);
+    }
+  }
+
+  .Send {
+    background: var(--ACCENT_COLOR);
+    color: #fff;
+  }
+
+  .LockIndicator {
+    position: absolute;
+    bottom: 60px;
+    right: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+    z-index: 10;
+
+    .LockIcon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--BLOCK_COLOR);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
 
       svg {
-         fill: var(--TEXT_COLOR);
+        fill: var(--TEXT_COLOR);
+        width: 24px;
+        height: 24px;
       }
-   }
+    }
 
-   .Send {
-      background: var(--ACCENT_COLOR);
-      color: #fff;
-   }
+    svg:last-child {
+      fill: var(--ACCENT_COLOR);
+      stroke: var(--ACCENT_COLOR);
+      width: 28px;
+      height: 28px;
+    }
+  }
 
-   .LockIndicator {
-      position: absolute;
-      bottom: 60px;
-      right: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      pointer-events: none;
-      z-index: 10;
+  .RecordingPanelHold {
+    position: absolute;
+    left: 18px;
+    bottom: 100%;
+    margin-bottom: 8px;
+    background: var(--BLOCK_COLOR);
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
 
-      .LockIcon {
-         width: 50px;
-         height: 50px;
-         border-radius: 50%;
-         background: var(--BLOCK_COLOR);
-         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-         display: flex;
-         align-items: center;
-         justify-content: center;
-
-         svg {
-            fill: var(--TEXT_COLOR);
-            width: 24px;
-            height: 24px;
-         }
-      }
-
-      svg:last-child {
-         fill: var(--ACCENT_COLOR);
-         stroke: var(--ACCENT_COLOR);
-         width: 28px;
-         height: 28px;
-      }
-   }
-
-   .RecordingPanelHold {
-      position: absolute;
-      left: 18px;
-      bottom: 100%;
-      margin-bottom: 8px;
-      background: var(--BLOCK_COLOR);
-      border-radius: 16px;
-      padding: 12px 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      min-width: 180px;
-
-      .RecordingTime {
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         font-size: 1em;
-         font-weight: 500;
-         color: var(--TEXT_COLOR);
-
-         .RecordingDot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #ff4444;
-         }
-      }
-
-      .HoldHint {
-         font-size: 0.8em;
-         color: var(--D_OR_P_COLOR);
-         line-height: 1.3;
-      }
-   }
-
-   .RecordingPanelLocked {
-      width: 100%;
+    .RecordingTime {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 2px 5px;
-      position: relative;
+      font-size: 1em;
+      font-weight: 500;
+      color: var(--TEXT_COLOR);
 
-      .RecordingTimeBlock {
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         flex-shrink: 0;
+      .RecordingDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff4444;
+      }
+    }
 
-         .RecordingDot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #ff4444;
-         }
+    .HoldHint {
+      font-size: 0.8em;
+      color: var(--D_OR_P_COLOR);
+      line-height: 1.3;
+    }
+  }
 
-         .Time {
-            font-size: 0.95em;
-            font-weight: 500;
-            color: var(--TEXT_COLOR);
-            min-width: 42px;
-         }
+  .RecordingPanelLocked {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 5px;
+    position: relative;
+
+    .RecordingTimeBlock {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+
+      .RecordingDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff4444;
       }
 
-      .CancelButton {
-         background: transparent;
-         color: var(--ACCENT_COLOR);
-         font-size: 0.9em;
-         font-weight: 500;
-         padding: 6px 12px;
-         border-radius: 6px;
-         transition: all 0.15s;
-         white-space: nowrap;
-         flex: 1;
-         text-align: center;
+      .Time {
+        font-size: 0.95em;
+        font-weight: 500;
+        color: var(--TEXT_COLOR);
+        min-width: 42px;
+      }
+    }
 
-         &:hover {
-            background: rgba(150, 116, 202, 0.1);
-         }
+    .CancelButton {
+      background: transparent;
+      color: var(--ACCENT_COLOR);
+      font-size: 0.9em;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+      white-space: nowrap;
+      flex: 1;
+      text-align: center;
 
-         &:active {
-            transform: scale(0.96);
-            background: rgba(150, 116, 202, 0.15);
-         }
+      &:hover {
+        background: rgba(150, 116, 202, 0.1);
       }
 
-      .SendVoiceButton {
-         background: var(--ACCENT_COLOR);
-         width: 38px;
-         height: 38px;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         transition: background 0.2s;
-         flex-shrink: 0;
-         box-shadow: 0 2px 8px rgba(150, 116, 202, 0.3);
-         will-change: transform;
-
-         &:hover {
-            background: var(--ACCENT_COLOR);
-            box-shadow: 0 4px 12px rgba(150, 116, 202, 0.4);
-         }
-
-         svg {
-            fill: var(--BLOCK_COLOR);
-            height: 18px;
-            width: 18px;
-         }
+      &:active {
+        transform: scale(0.96);
+        background: rgba(150, 116, 202, 0.15);
       }
-   }
+    }
 
-   .UI-EmojiPicker {
-      bottom: 50px !important;
-      left: unset !important;
-      right: 0px !important;
-      top: auto !important;
-      position: absolute !important;
-      transform: none !important;
-   }
+    .SendVoiceButton {
+      background: var(--ACCENT_COLOR);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(150, 116, 202, 0.3);
+      will-change: transform;
+
+      &:hover {
+        background: var(--ACCENT_COLOR);
+        box-shadow: 0 4px 12px rgba(150, 116, 202, 0.4);
+      }
+
+      svg {
+        fill: var(--BLOCK_COLOR);
+        height: 18px;
+        width: 18px;
+      }
+    }
+  }
+
+  .UI-EmojiPicker {
+    bottom: 50px !important;
+    left: unset !important;
+    right: 0px !important;
+    top: auto !important;
+    position: absolute !important;
+    transform: none !important;
+  }
 }
 
 .messenger-emoji-picker {
-   bottom: 50px !important;
-   left: unset !important;
-   right: 0px !important;
-   top: auto !important;
-   position: absolute !important;
-   transform: none !important;
-   width: 400px !important;
-   max-height: 300px !important;
-   overflow: auto !important;
+  bottom: 50px !important;
+  left: unset !important;
+  right: 0px !important;
+  top: auto !important;
+  position: absolute !important;
+  transform: none !important;
+  width: 400px !important;
+  max-height: 300px !important;
+  overflow: auto !important;
 
-   .Categories {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      width: 100% !important;
-      gap: 5px !important;
-   }
+  .Categories {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 5px !important;
+  }
 
-   .Category {
-      min-width: unset !important;
-      flex: 1 !important;
-   }
+  .Category {
+    min-width: unset !important;
+    flex: 1 !important;
+  }
 
-   .Grid {
-      max-height: 250px !important;
-      overflow-y: auto !important;
-   }
+  .Grid {
+    max-height: 250px !important;
+    overflow-y: auto !important;
+  }
 }
 
 .Chat-NonMessages {
-   background: var(--BLOCK_COLOR);
-   color: var(--BLOCK_COLOR_LITE_TEXT);
-   border-radius: 20px;
-   font-size: 0.9em;
-   width: 60%;
-   height: fit-content;
-   margin: auto;
-   padding: 10px;
-   text-align: center;
-   position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
+  background: var(--BLOCK_COLOR);
+  color: var(--BLOCK_COLOR_LITE_TEXT);
+  border-radius: 20px;
+  font-size: 0.9em;
+  width: 60%;
+  height: fit-content;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .Chat-NonMessages svg {
-   fill: var(--TEXT_COLOR);
-   width: 40px;
-   height: 40px;
-   margin-bottom: 10px;
+  fill: var(--TEXT_COLOR);
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
 }
 
 .Chat-NewMessages {
-   position: absolute;
-   bottom: 80px;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 10;
-   background: var(--ACCENT_COLOR);
-   color: #fff;
-   border: none;
-   border-radius: 20px;
-   padding: 6px 16px;
-   font-size: 0.85em;
-   cursor: pointer;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-   white-space: nowrap;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: var(--ACCENT_COLOR);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.85em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
 
-   &:hover {
-      filter: brightness(1.1);
-   }
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 .Chat-Messages {
-   width: 100%;
-   height: 100%;
-   margin: 0;
-   position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   display: flex;
-   flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .Chat-MessagesScroll,
 .Chat-PreloadScroll {
-   flex: 1;
-   width: 100%;
-   overflow-y: scroll;
-   overflow-x: hidden;
-   scroll-behavior: smooth;
-   display: flex;
-   flex-direction: column-reverse;
-   position: relative;
+  flex: 1;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
 }
 
 .Chat-MessagesList,
 .Chat-PreloadList {
-   padding: 60px 0px;
-   height: fit-content;
-   display: flex;
-   justify-content: flex-end;
-   flex-direction: column;
+  padding: 60px 0px;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .Chat-PreloadScroll {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 
 .Chat-DateSeparator {
-   background: var(--BLOCK_COLOR);
-   color: var(--TEXT_COLOR);
-   border: 1px solid var(--AIR_BLOCK_COLOR);
-   width: fit-content;
-   border-radius: 100px;
-   padding: 3px 10px;
-   font-size: 0.9em;
-   display: block;
-   margin: 10px auto;
+  background: var(--BLOCK_COLOR);
+  color: var(--TEXT_COLOR);
+  border: 1px solid var(--AIR_BLOCK_COLOR);
+  width: fit-content;
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-size: 0.9em;
+  display: block;
+  margin: 10px auto;
 }
 
 // Row wrapper for avatar + message bubble
 .Chat-M_Row {
-   display: flex;
-   align-items: flex-end;
-   justify-content: flex-start;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
 
-   &--right {
-      justify-content: flex-end;
-      padding-right: 10px;
-   }
+  &--right {
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
 
-   // В группах свои сообщения тоже слева — хвост слева
-   &:not(.Chat-M_Row--right) .Chat-M_Me.Chat-M_HasTail {
-      border-radius: 15px 15px 15px 1px;
-   }
+  // В группах свои сообщения тоже слева — хвост слева
+  &:not(.Chat-M_Row--right) .Chat-M_Me.Chat-M_HasTail {
+    border-radius: 15px 15px 15px 1px;
+  }
 }
 
 .Chat-M_AvatarSlot {
-   width: 32px;
-   height: 32px;
-   flex-shrink: 0;
-   margin-left: 8px;
-   margin-right: 6px;
-   margin-bottom: 2px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-left: 8px;
+  margin-right: 6px;
+  margin-bottom: 2px;
 
-   .Avatar {
-      width: 32px !important;
-      height: 32px !important;
-      min-width: 32px !important;
-      min-height: 32px !important;
-      font-size: 0.75em;
-   }
+  .Avatar {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    font-size: 0.75em;
+  }
 }
 
 .Chat-M_Me,
 .Chat-M_URS {
-   width: fit-content;
-   max-width: 30vw;
-   font-size: 1em;
-   position: relative;
-   overflow: hidden;
-   border-radius: 13px;
-   display: flex;
-   flex-direction: column;
-   word-wrap: break-word;
-   white-space: pre-line;
+  width: fit-content;
+  max-width: 30vw;
+  font-size: 1em;
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  white-space: pre-line;
 
-   &.message-new {
-      animation: messageSlideIn 0.3s ease-out forwards;
-   }
+  &.message-new {
+    animation: messageSlideIn 0.3s ease-out forwards;
+  }
 
-   @keyframes messageSlideIn {
+  @keyframes messageSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .Header {
+    padding: 5px;
+
+    .Name {
+      color: var(--ACCENT_COLOR);
+      opacity: 0.8;
+      font-size: 0.8em;
+    }
+  }
+
+  .UI-PRELOAD {
+    background: var(--BLOCK_COLOR);
+    position: absolute;
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .UI-PRELOAD::after {
+    filter: blur(20px);
+  }
+
+  .Loader,
+  .Bum {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .Loader {
+    background: rgb(255 255 255 / 50%);
+    backdrop-filter: blur(20px) brightness(200%);
+    -webkit-backdrop-filter: blur(20px) brightness(200%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Progress {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: spin 1s linear infinite;
+    }
+
+    svg {
+      fill: var(--TEXT_COLOR);
+      width: 80%;
+      height: 80%;
+    }
+
+    .CancelButton {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #222;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+
+      svg {
+        fill: white;
+        width: 60%;
+        height: 60%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes spin {
       0% {
-         opacity: 0;
-         transform: translateY(10px);
+        transform: rotate(0deg);
       }
 
       100% {
-         opacity: 1;
-         transform: translateY(0);
+        transform: rotate(360deg);
       }
-   }
+    }
+  }
 
-   .Header {
-      padding: 5px;
+  .Bum {
+    background: #000000;
+    transform: scale(0);
+    filter: blur(5px);
+    z-index: 0;
+    transition: 0.9s;
+  }
+
+  .BumBum {
+    transform: scale(10);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .Image {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+
+    .NotLoaded {
+      filter: blur(20px) saturate(200%);
+      opacity: 0.5;
+    }
+
+    img {
+      max-width: 100%;
+      transition: 0.9s;
+    }
+  }
+
+  .File {
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+
+    .Metadata {
+      width: 100%;
+      overflow: hidden;
+      user-select: none;
 
       .Name {
-         color: var(--ACCENT_COLOR);
-         opacity: 0.8;
-         font-size: 0.8em;
+        font-size: 1.05em;
       }
-   }
 
-   .UI-PRELOAD {
-      background: var(--BLOCK_COLOR);
-      position: absolute;
-      border-radius: 0px;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-   }
+      .Size {
+        font-size: 0.8em;
+        opacity: 0.7;
+      }
+    }
 
-   .UI-PRELOAD::after {
-      filter: blur(20px);
-   }
+    .Icon,
+    .Loader {
+      background: #6640a0;
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+    }
 
-   .Loader,
-   .Bum {
-      border-radius: 100%;
-      width: 45px;
-      height: 45px;
-      margin: auto;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-   }
-
-   .Loader {
-      background: rgb(255 255 255 / 50%);
-      backdrop-filter: blur(20px) brightness(200%);
+    .Icon {
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .Progress {
-         position: absolute;
-         width: 100%;
-         height: 100%;
-         animation: spin 1s linear infinite;
+      svg {
+        fill: #fff;
+        width: 35px;
+        height: 35px;
       }
+    }
+
+    .Loader {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      color: #fff;
+      position: relative;
 
       svg {
-         fill: var(--TEXT_COLOR);
-         width: 80%;
-         height: 80%;
+        fill: #fff;
+      }
+    }
+  }
+
+  .Voice {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    min-width: 220px;
+
+    .UnlistenedIndicator {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ACCENT_COLOR);
+      animation: voicePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes voicePulse {
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
 
-      .CancelButton {
-         position: absolute;
-         inset: 0;
-         width: 100%;
-         height: 100%;
-         background: #222;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         cursor: pointer;
-         z-index: 2;
-
-         svg {
-            fill: white;
-            width: 60%;
-            height: 60%;
-         }
-
-         &:hover {
-            transform: scale(1.1);
-         }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.15);
       }
+    }
 
-      @keyframes spin {
-         0% {
-            transform: rotate(0deg);
-         }
-
-         100% {
-            transform: rotate(360deg);
-         }
-      }
-   }
-
-   .Bum {
-      background: #000000;
-      transform: scale(0);
-      filter: blur(5px);
-      z-index: 0;
-      transition: 0.9s;
-   }
-
-   .BumBum {
-      transform: scale(10);
-      opacity: 0;
-      visibility: hidden;
-   }
-
-   .Image {
-      cursor: pointer;
+    .VoiceCircleButton {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex-shrink: 0;
       display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-
-      .NotLoaded {
-         filter: blur(20px) saturate(200%);
-         opacity: 0.5;
-      }
-
-      img {
-         max-width: 100%;
-         transition: 0.9s;
-      }
-   }
-
-   .File {
-      padding: 10px;
-      gap: 10px;
-      display: flex;
-      align-items: center;
-
-      .Metadata {
-         width: 100%;
-         overflow: hidden;
-         user-select: none;
-
-         .Name {
-            font-size: 1.05em;
-         }
-
-         .Size {
-            font-size: 0.8em;
-            opacity: 0.7;
-         }
-      }
-
-      .Icon,
-      .Loader {
-         background: #6640a0;
-         width: 50px;
-         height: 50px;
-         flex-shrink: 0;
-      }
-
-      .Icon {
-         border-radius: 10px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-
-         svg {
-            fill: #fff;
-            width: 35px;
-            height: 35px;
-         }
-      }
-
-      .Loader {
-         backdrop-filter: none;
-         color: #fff;
-         position: relative;
-
-         svg {
-            fill: #fff;
-         }
-      }
-   }
-
-   .Voice {
-      padding: 8px 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      min-width: 220px;
-
-      .UnlistenedIndicator {
-         position: absolute;
-         top: 6px;
-         right: 6px;
-         width: 7px;
-         height: 7px;
-         border-radius: 50%;
-         background: var(--ACCENT_COLOR);
-         animation: voicePulse 2s ease-in-out infinite;
-      }
-
-      @keyframes voicePulse {
-         0%,
-         100% {
-            opacity: 1;
-            transform: scale(1);
-         }
-
-         50% {
-            opacity: 0.5;
-            transform: scale(1.15);
-         }
-      }
-
-      .VoiceCircleButton {
-         width: 38px;
-         height: 38px;
-         border-radius: 50%;
-         flex-shrink: 0;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         position: relative;
-         background: var(--ACCENT_COLOR);
-         transition:
-            transform 0.15s,
-            box-shadow 0.15s;
-
-         &:hover {
-            transform: scale(1.06);
-            box-shadow: 0 4px 14px rgba(150, 116, 202, 0.35);
-         }
-
-         svg {
-            fill: #fff;
-            width: 17px;
-            height: 17px;
-         }
-
-         .VoiceCircleButton__icon {
-            fill: #fff;
-            width: 17px;
-            height: 17px;
-         }
-
-         .Progress {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            animation: spin 1.2s linear infinite;
-            color: rgba(255, 255, 255, 0.85);
-         }
-
-         .VoiceCircleButton__cancel {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.15s;
-            pointer-events: none;
-
-            svg {
-               fill: #fff;
-               width: 55%;
-               height: 55%;
-            }
-         }
-
-         &:hover .VoiceCircleButton__cancel {
-            opacity: 1;
-            pointer-events: all;
-         }
-
-         &--play {
-            .UI-PlayButton {
-               background: transparent;
-               fill: #fff;
-               margin: 0;
-               width: 100%;
-               height: 100%;
-
-               svg {
-                  fill: #fff;
-                  width: 40%;
-                  height: 40%;
-               }
-            }
-         }
-      }
-
-      .WaveformContainer {
-         flex: 1;
-         display: flex;
-         flex-direction: column;
-         gap: 3px;
-         min-width: 130px;
-
-         .VoiceFooter {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-         }
-
-         .Duration {
-            font-size: 0.72em;
-            opacity: 0.65;
-            user-select: none;
-            font-variant-numeric: tabular-nums;
-         }
-
-         .PlaybackRate {
-            background: transparent;
-            border: 1px solid currentColor;
-            border-radius: 10px;
-            padding: 1px 6px;
-            font-size: 0.68em;
-            font-weight: 600;
-            opacity: 0.65;
-            transition: all 0.15s;
-            min-width: 30px;
-            text-align: center;
-
-            &:hover {
-               opacity: 1;
-               transform: scale(1.06);
-            }
-         }
-      }
-   }
-
-   .Chat-M_CallEvent {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: linear-gradient(
-         180deg,
-         rgba(255, 255, 255, 0.16),
-         rgba(255, 255, 255, 0.09)
-      );
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-      width: min(260px, 72vw);
-      min-width: 220px;
-      max-width: 260px;
+      background: var(--ACCENT_COLOR);
       transition:
-         transform 0.15s ease,
-         box-shadow 0.15s ease;
+        transform 0.15s,
+        box-shadow 0.15s;
 
-      .Chat-M_CallEvent-Icon {
-         width: 32px;
-         height: 32px;
-         border-radius: 50%;
-         flex-shrink: 0;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         background: rgba(255, 255, 255, 0.24);
-
-         svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-         }
+      &:hover {
+        transform: scale(1.06);
+        box-shadow: 0 4px 14px rgba(150, 116, 202, 0.35);
       }
-
-      .Chat-M_CallEvent-Body {
-         min-width: 0;
-         width: 100%;
-      }
-
-      .Chat-M_CallEvent-Top {
-         display: flex;
-         align-items: center;
-         justify-content: space-between;
-         gap: 8px;
-      }
-
-      .Chat-M_CallEvent-Title {
-         font-size: 0.9em;
-         font-weight: 700;
-         line-height: 1.2;
-         white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
-      }
-
-      .Chat-M_CallEvent-Badges {
-         display: flex;
-         align-items: center;
-         gap: 4px;
-         flex-shrink: 0;
-      }
-
-      .Chat-M_CallEvent-Badge {
-         font-size: 10px;
-         line-height: 1;
-         font-weight: 700;
-         text-transform: uppercase;
-         letter-spacing: 0.2px;
-         border-radius: 999px;
-         padding: 4px 6px;
-         background: rgba(255, 255, 255, 0.22);
-      }
-
-      .Chat-M_CallEvent-Subtitle {
-         margin-top: 2px;
-         font-size: 0.78em;
-         opacity: 0.85;
-         font-variant-numeric: tabular-nums;
-         white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
-      }
-
-      &.Chat-M_CallEvent--video .Chat-M_CallEvent-Badge:last-child {
-         color: #c6dcff;
-      }
-
-      &.Chat-M_CallEvent--group .Chat-M_CallEvent-Badge:first-child {
-         color: #f0d4ff;
-      }
-
-      &.Chat-M_CallEvent--missed .Chat-M_CallEvent-Subtitle {
-         opacity: 1;
-         color: #ff9797;
-      }
-
-      &.Chat-M_CallEvent--missed .Chat-M_CallEvent-Icon {
-         background: rgba(255, 98, 98, 0.22);
-         color: #ff9b9b;
-      }
-   }
-
-   &.Chat-M_Call {
-      background: transparent;
-      max-width: none;
-      overflow: visible;
-      box-shadow: none;
-      border-radius: 0;
-
-      .TextAndStatus {
-         width: min(260px, 72vw);
-         justify-content: flex-end;
-         margin-top: 4px;
-      }
-
-      .Status {
-         padding: 0;
-      }
-   }
-
-   .TextAndStatus {
-      display: flex;
-      align-items: flex-end;
-
-      &.TextAndStatus--status-only {
-         width: 100%;
-         justify-content: flex-end;
-         margin-top: 0;
-      }
-   }
-
-   .Text {
-      z-index: 1;
-      width: 100%;
-      margin: 7px 10px;
-
-      .code-block-container {
-         width: 100%;
-         max-width: 100%;
-         overflow: hidden;
-         box-sizing: border-box;
-      }
-
-      .code-block {
-         width: 100%;
-         max-width: 100%;
-         overflow-x: auto;
-         box-sizing: border-box;
-
-         code {
-            display: inline-block;
-            min-width: 100%;
-         }
-      }
-
-      .inline-code {
-         max-width: 100%;
-         overflow-x: auto;
-         vertical-align: middle;
-      }
-   }
-
-   .ErrorText {
-      font-style: italic;
-      opacity: 0.6;
-   }
-
-   .Status {
-      color: var(--TEXT_COLOR);
-      opacity: 0.6;
-      user-select: none;
-      padding: 0px 7px 4px 0px;
-      gap: 4px;
-      display: flex;
-      align-items: center;
-      flex-direction: row;
 
       svg {
-         width: 14px;
-         height: 14px;
+        fill: #fff;
+        width: 17px;
+        height: 17px;
       }
 
-      .Time {
-         font-size: 0.6em;
+      .VoiceCircleButton__icon {
+        fill: #fff;
+        width: 17px;
+        height: 17px;
       }
 
-      .read-check {
-         color: #53bdeb;
-         display: flex;
-         align-items: center;
-
-         svg {
-            width: 16px;
-            height: 16px;
-         }
+      .Progress {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        animation: spin 1.2s linear infinite;
+        color: rgba(255, 255, 255, 0.85);
       }
-   }
+
+      .VoiceCircleButton__cancel {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.15s;
+        pointer-events: none;
+
+        svg {
+          fill: #fff;
+          width: 55%;
+          height: 55%;
+        }
+      }
+
+      &:hover .VoiceCircleButton__cancel {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      &--play {
+        .UI-PlayButton {
+          background: transparent;
+          fill: #fff;
+          margin: 0;
+          width: 100%;
+          height: 100%;
+
+          svg {
+            fill: #fff;
+            width: 40%;
+            height: 40%;
+          }
+        }
+      }
+    }
+
+    .WaveformContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 130px;
+
+      .VoiceFooter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .Duration {
+        font-size: 0.72em;
+        opacity: 0.65;
+        user-select: none;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .PlaybackRate {
+        background: transparent;
+        border: 1px solid currentColor;
+        border-radius: 10px;
+        padding: 1px 6px;
+        font-size: 0.68em;
+        font-weight: 600;
+        opacity: 0.65;
+        transition: all 0.15s;
+        min-width: 30px;
+        text-align: center;
+
+        &:hover {
+          opacity: 1;
+          transform: scale(1.06);
+        }
+      }
+    }
+  }
+
+  .Chat-M_CallEvent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.09)
+    );
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    width: min(260px, 72vw);
+    min-width: 220px;
+    max-width: 260px;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+
+    .Chat-M_CallEvent-Icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.24);
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+    }
+
+    .Chat-M_CallEvent-Body {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .Chat-M_CallEvent-Top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .Chat-M_CallEvent-Title {
+      font-size: 0.9em;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .Chat-M_CallEvent-Badges {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .Chat-M_CallEvent-Badge {
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      border-radius: 999px;
+      padding: 4px 6px;
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .Chat-M_CallEvent-Subtitle {
+      margin-top: 2px;
+      font-size: 0.78em;
+      opacity: 0.85;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &.Chat-M_CallEvent--video .Chat-M_CallEvent-Badge:last-child {
+      color: #c6dcff;
+    }
+
+    &.Chat-M_CallEvent--group .Chat-M_CallEvent-Badge:first-child {
+      color: #f0d4ff;
+    }
+
+    &.Chat-M_CallEvent--missed .Chat-M_CallEvent-Subtitle {
+      opacity: 1;
+      color: #ff9797;
+    }
+
+    &.Chat-M_CallEvent--missed .Chat-M_CallEvent-Icon {
+      background: rgba(255, 98, 98, 0.22);
+      color: #ff9b9b;
+    }
+  }
+
+  &.Chat-M_Call {
+    background: transparent;
+    max-width: none;
+    overflow: visible;
+    box-shadow: none;
+    border-radius: 0;
+
+    .TextAndStatus {
+      width: min(260px, 72vw);
+      justify-content: flex-end;
+      margin-top: 4px;
+    }
+
+    .Status {
+      padding: 0;
+    }
+  }
+
+  .TextAndStatus {
+    display: flex;
+    align-items: flex-end;
+
+    &.TextAndStatus--status-only {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+  }
+
+  .Text {
+    z-index: 1;
+    width: 100%;
+    margin: 7px 10px;
+
+    .code-block-container {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .code-block {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      box-sizing: border-box;
+
+      code {
+        display: inline-block;
+        min-width: 100%;
+      }
+    }
+
+    .inline-code {
+      max-width: 100%;
+      overflow-x: auto;
+      vertical-align: middle;
+    }
+  }
+
+  .ErrorText {
+    font-style: italic;
+    opacity: 0.6;
+  }
+
+  .Status {
+    color: var(--TEXT_COLOR);
+    opacity: 0.6;
+    user-select: none;
+    padding: 0px 7px 4px 0px;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .Time {
+      font-size: 0.6em;
+    }
+
+    .read-check {
+      color: #53bdeb;
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
 }
 
 .Chat-M_Me {
-   background: var(--ACCENT_COLOR);
-   color: #fff;
-   margin: 3px 0;
-   max-width: 30vw;
+  background: var(--ACCENT_COLOR);
+  color: #fff;
+  margin: 3px 0;
+  max-width: 30vw;
 
-   // Голосовые сообщения на фиолетовом фоне
-   --WAVEFORM_BAR_COLOR: #fff;
+  // Голосовые сообщения на фиолетовом фоне
+  --WAVEFORM_BAR_COLOR: #fff;
 
-   .Header .Name {
-      color: rgba(255, 255, 255, 0.85);
-   }
+  .Header .Name {
+    color: rgba(255, 255, 255, 0.85);
+  }
 
-   .VoiceCircleButton {
-      background: rgba(255, 255, 255, 0.2);
-   }
+  .VoiceCircleButton {
+    background: rgba(255, 255, 255, 0.2);
+  }
 
-   &.Chat-M_HasTail {
-      border-radius: 15px 15px 1px 15px;
-   }
+  &.Chat-M_HasTail {
+    border-radius: 15px 15px 1px 15px;
+  }
 
-   .Status {
-      color: rgb(255 255 255);
+  .Status {
+    color: rgb(255 255 255);
 
-      .read-check {
-         color: #b0e8ff;
-      }
-   }
+    .read-check {
+      color: #b0e8ff;
+    }
+  }
 
-   a {
-      color: #fff;
-      text-decoration: underline;
-   }
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
 
-   &.Chat-M_Call .Chat-M_CallEvent {
-      background: linear-gradient(
-         180deg,
-         rgba(255, 255, 255, 0.26),
-         rgba(255, 255, 255, 0.14)
-      );
-      border-color: rgba(255, 255, 255, 0.34);
-      box-shadow: 0 8px 20px rgba(31, 13, 56, 0.35);
-   }
+  &.Chat-M_Call .Chat-M_CallEvent {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.26),
+      rgba(255, 255, 255, 0.14)
+    );
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow: 0 8px 20px rgba(31, 13, 56, 0.35);
+  }
 }
 
 .Chat-M_URS {
-   background: var(--BLOCK_COLOR);
-   color: var(--TEXT_COLOR);
-   margin: 3px 0;
-   margin-left: 6px;
-   max-width: 30vw;
+  background: var(--BLOCK_COLOR);
+  color: var(--TEXT_COLOR);
+  margin: 3px 0;
+  margin-left: 6px;
+  max-width: 30vw;
 
-   // Голосовые сообщения на светлом фоне — ACCENT_COLOR хорошо виден
-   --WAVEFORM_BAR_COLOR: var(--ACCENT_COLOR);
+  // Голосовые сообщения на светлом фоне — ACCENT_COLOR хорошо виден
+  --WAVEFORM_BAR_COLOR: var(--ACCENT_COLOR);
 
-   &.Chat-M_HasTail {
-      border-radius: 15px 15px 15px 1px;
-   }
+  &.Chat-M_HasTail {
+    border-radius: 15px 15px 15px 1px;
+  }
 
-   &.Chat-M_Call .Chat-M_CallEvent {
-      background: linear-gradient(
-         180deg,
-         rgba(255, 255, 255, 0.13),
-         rgba(255, 255, 255, 0.06)
-      );
-      border-color: rgba(255, 255, 255, 0.14);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-   }
+  &.Chat-M_Call .Chat-M_CallEvent {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.06)
+    );
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .Chat.with-sidebar {
-   .Chat-M_Me {
-      max-width: 25vw;
-   }
+  .Chat-M_Me {
+    max-width: 25vw;
+  }
 
-   .Chat-M_URS {
-      max-width: 25vw;
-   }
+  .Chat-M_URS {
+    max-width: 25vw;
+  }
 }
 
 @media only screen and (max-device-width: 768px),
-   only screen and (device-width: 768px) and (device-height: 768px),
-   only screen and (width: 768px) and (orientation: landscape),
-   only screen and (device-width: 768px),
-   only screen and (max-width: 768px) {
-   /* Чат */
+  only screen and (device-width: 768px) and (device-height: 768px),
+  only screen and (width: 768px) and (orientation: landscape),
+  only screen and (device-width: 768px),
+  only screen and (max-width: 768px) {
+  /* Чат */
 
-   .Chat,
-   .Chats {
-      border-radius: 0px;
-      width: 100%;
-      max-width: 100%;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 100%;
-   }
+  .Chat,
+  .Chats {
+    border-radius: 0px;
+    width: 100%;
+    max-width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+  }
 
-   .no-chat-selected {
-      display: none !important;
-   }
+  .no-chat-selected {
+    display: none !important;
+  }
 
-   .Chat-Messages {
-      width: 100%;
-   }
+  .Chat-Messages {
+    width: 100%;
+  }
 
-   .Chats {
-      background: var(--BODY_COLOR);
-      padding: 0px 5px;
-   }
+  .Chats {
+    background: var(--BODY_COLOR);
+    padding: 0px 5px;
+  }
 
-   .Chats-User {
-      background: var(--BLOCK_COLOR);
-   }
+  .Chats-User {
+    background: var(--BLOCK_COLOR);
+  }
 
-   .Chat-M_Me,
-   .Chat-M_URS {
-      max-width: 80vw;
+  .Chat-M_Me,
+  .Chat-M_URS {
+    max-width: 80vw;
 
-      .Text {
-         .code-block-container {
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
-            box-sizing: border-box;
-         }
-
-         .code-block {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: auto;
-            box-sizing: border-box;
-
-            code {
-               display: inline-block;
-               min-width: 100%;
-            }
-         }
-
-         .inline-code {
-            max-width: 100%;
-            overflow-x: auto;
-         }
+    .Text {
+      .code-block-container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
       }
-   }
+
+      .code-block {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
+
+        code {
+          display: inline-block;
+          min-width: 100%;
+        }
+      }
+
+      .inline-code {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  }
 }
 
 .Chat-RightMenu {
-   width: 320px;
-   height: 100%;
-   background: var(--BLOCK_COLOR);
-   border-left: 1px solid var(--AIR_BLOCK_COLOR);
-   display: flex;
-   user-select: none;
-   flex-direction: column;
-   animation: slideInRight 0.3s ease;
-   position: relative;
+  width: 320px;
+  height: 100%;
+  background: var(--BLOCK_COLOR);
+  border-left: 1px solid var(--AIR_BLOCK_COLOR);
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease;
+  position: relative;
 
-   .Header {
-      padding: 10px 15px;
+  .Header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--AIR_BLOCK_COLOR);
+    height: 50px;
+
+    .Title {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+
+    .Close {
+      width: 30px;
+      height: 30px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--AIR_BLOCK_COLOR);
-      height: 50px;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
 
-      .Title {
-         font-size: 1.1em;
-         font-weight: 500;
+      &:hover {
+        background-color: var(--AIR_BLOCK_COLOR);
       }
 
-      .Close {
-         width: 30px;
-         height: 30px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         cursor: pointer;
-         border-radius: 50%;
-         transition: background-color 0.2s ease;
-
-         &:hover {
-            background-color: var(--AIR_BLOCK_COLOR);
-         }
-
-         svg {
-            fill: var(--TEXT_COLOR);
-            width: 20px;
-            height: 20px;
-         }
+      svg {
+        fill: var(--TEXT_COLOR);
+        width: 20px;
+        height: 20px;
       }
-   }
+    }
+  }
 
-   .Resize-Handle {
-      position: absolute;
-      top: 0;
-      left: -5px;
-      width: 10px;
-      height: 100%;
-      cursor: col-resize;
-      z-index: 50;
-   }
+  .Resize-Handle {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 50;
+  }
 
-   .Resize-Handle:hover::after,
-   .Resize-Handle:active::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0px;
-      width: 5px;
-      height: 100%;
-      background-color: var(--ACCENT_COLOR);
-      z-index: 10;
-      opacity: 0.5;
-   }
+  .Resize-Handle:hover::after,
+  .Resize-Handle:active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 5px;
+    height: 100%;
+    background-color: var(--ACCENT_COLOR);
+    z-index: 10;
+    opacity: 0.5;
+  }
 }
 
 .sidebar-emoji-picker {
-   height: calc(100% - 50px);
-   width: 100% !important;
-   position: relative;
-   border-radius: 0;
-   box-shadow: none;
-   max-height: unset !important;
-   max-width: unset !important;
+  height: calc(100% - 50px);
+  width: 100% !important;
+  position: relative;
+  border-radius: 0;
+  box-shadow: none;
+  max-height: unset !important;
+  max-width: unset !important;
 }
 
 @keyframes slideInRight {
-   from {
-      transform: translateX(100%);
-   }
+  from {
+    transform: translateX(100%);
+  }
 
-   to {
-      transform: translateX(0);
-   }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .UI-EmojiPickerChat {
-   bottom: 50px !important;
-   left: unset !important;
-   right: 0px !important;
-   top: auto !important;
-   position: absolute !important;
-   transform: none !important;
+  bottom: 50px !important;
+  left: unset !important;
+  right: 0px !important;
+  top: auto !important;
+  position: absolute !important;
+  transform: none !important;
 }
 
 @media only screen and (max-device-width: 768px),
-   only screen and (device-width: 768px) and (device-height: 768px),
-   only screen and (width: 768px) and (orientation: landscape),
-   only screen and (device-width: 768px),
-   only screen and (max-width: 768px) {
-   .Chat-RightMenu {
-      display: none;
-   }
+  only screen and (device-width: 768px) and (device-height: 768px),
+  only screen and (width: 768px) and (orientation: landscape),
+  only screen and (device-width: 768px),
+  only screen and (max-width: 768px) {
+  .Chat-RightMenu {
+    display: none;
+  }
 }
 
 // Добавим стили для ActionPanel
 .ActionPanel {
-   mask-image: linear-gradient(56deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 50%);
-   width: 100%;
-   height: 100%;
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   z-index: 5;
+  mask-image: linear-gradient(56deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 50%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
 
-   .Buttons {
-      font-size: 1.2em;
-      margin: 20px;
-      position: absolute;
-      bottom: 0;
+  .Buttons {
+    font-size: 1.2em;
+    margin: 20px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+
+    label {
+      background: var(--AIR_BLOCK_COLOR);
+      border-radius: var(--BR_BASE);
+      padding: 10px 15px;
+      gap: 10px;
       display: flex;
+      user-select: none;
+      cursor: pointer;
+      text-wrap: nowrap;
+      align-items: center;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.34);
 
-      label {
-         background: var(--AIR_BLOCK_COLOR);
-         border-radius: var(--BR_BASE);
-         padding: 10px 15px;
-         gap: 10px;
-         display: flex;
-         user-select: none;
-         cursor: pointer;
-         text-wrap: nowrap;
-         align-items: center;
-         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.34);
-
-         svg {
-            fill: var(--TEXT_COLOR);
-            width: 25px;
-            height: 25px;
-         }
+      svg {
+        fill: var(--TEXT_COLOR);
+        width: 25px;
+        height: 25px;
       }
-   }
+    }
+  }
 }
 
 .messenger-emoji-picker {
-   bottom: 50px;
-   right: 0;
-   top: auto;
-   position: absolute;
-   width: 400px;
-   max-height: 300px;
-   overflow: auto;
-   z-index: 90;
+  bottom: 50px;
+  right: 0;
+  top: auto;
+  position: absolute;
+  width: 400px;
+  max-height: 300px;
+  overflow: auto;
+  z-index: 90;
 
-   .Categories {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-      gap: 5px;
-   }
+  .Categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+  }
 
-   .Category {
-      min-width: unset;
-      flex: 1;
-   }
+  .Category {
+    min-width: unset;
+    flex: 1;
+  }
 
-   .Grid {
-      max-height: 250px;
-      overflow-y: auto;
-   }
+  .Grid {
+    max-height: 250px;
+    overflow-y: auto;
+  }
 }
 
 // Video circle recording overlay (floating, draggable, no dimming)
 .VideoCircleOverlay {
-   position: fixed;
-   inset: 0;
-   z-index: 9999;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.45);
-   backdrop-filter: blur(18px);
-   -webkit-backdrop-filter: blur(18px);
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-   .VideoCirclePreview {
-      margin-top: auto;
-   }
+  .VideoCirclePreview {
+    margin-top: auto;
+  }
 
-   .VideoCircleControls {
-      margin-top: auto;
-   }
+  .VideoCircleControls {
+    margin-top: auto;
+  }
 }
 
 .VideoCirclePreview {
-   width: 300px;
-   height: 300px;
-   border-radius: 50%;
-   position: relative;
-   overflow: hidden;
-   box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
 
-   video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      transform: scaleX(-1);
-   }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scaleX(-1);
+  }
 
-   .VideoCircleProgress {
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: 2;
-      pointer-events: none;
+  .VideoCircleProgress {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: 2;
+    pointer-events: none;
 
-      circle {
-         transition: stroke-dashoffset 0.3s linear;
-      }
-   }
+    circle {
+      transition: stroke-dashoffset 0.3s linear;
+    }
+  }
 
-   .VideoCircleTime {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-size: 0.85em;
-      font-weight: 600;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
-      z-index: 3;
-      pointer-events: none;
-   }
+  .VideoCircleTime {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    z-index: 3;
+    pointer-events: none;
+  }
 }
 
 .VideoCircleControls {
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 16px 24px;
-   padding-bottom: max(24px, env(safe-area-inset-bottom));
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
 
-   .RecordingTimeBlock {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #fff;
+  .RecordingTimeBlock {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
 
-      .RecordingDot {
-         width: 8px;
-         height: 8px;
-         border-radius: 50%;
-         background: #f04;
-      }
-
-      .Time {
-         font-size: 0.95em;
-         font-weight: 600;
-      }
-   }
-
-   .CancelButton {
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.95em;
-      cursor: pointer;
-      padding: 8px 12px;
-   }
-
-   .SendVoiceButton {
-      width: 48px;
-      height: 48px;
+    .RecordingDot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: var(--accent, #7c6af7);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #fff;
+      background: #f04;
+    }
 
-      svg {
-         width: 20px;
-         height: 20px;
-      }
-   }
+    .Time {
+      font-size: 0.95em;
+      font-weight: 600;
+    }
+  }
+
+  .CancelButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95em;
+    cursor: pointer;
+    padding: 8px 12px;
+  }
+
+  .SendVoiceButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent, #7c6af7);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 // Video circle message — override parent message bubble
 .Chat-M_Me,
 .Chat-M_URS {
-   &.Chat-M_VideoCircle {
-      background: transparent !important;
-      border-radius: 0 !important;
-      overflow: visible !important;
-      max-width: none !important;
+  &.Chat-M_VideoCircle {
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    max-width: none !important;
 
-      > .TextAndStatus {
-         width: 240px;
-         justify-content: space-between;
-         align-items: center;
+    > .TextAndStatus {
+      width: 240px;
+      justify-content: space-between;
+      align-items: center;
 
-         .VideoDuration {
-            font-size: 0.6em;
-            opacity: 0.6;
-            padding: 0 0 0 4px;
-         }
-
-         .Status {
-            padding: 0 4px 0 0;
-         }
+      .VideoDuration {
+        font-size: 0.6em;
+        opacity: 0.6;
+        padding: 0 0 0 4px;
       }
-   }
+
+      .Status {
+        padding: 0 4px 0 0;
+      }
+    }
+  }
 }
 
 // Video circle
 .VideoCircle {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-   .VideoCircle__circle {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-      cursor: pointer;
-      flex-shrink: 0;
-   }
+  .VideoCircle__circle {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 
-   .VideoCircle__video {
+  .VideoCircle__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+  }
+
+  .VideoCircle__placeholder {
+    width: 100%;
+    height: 100%;
+    background: #1a1a2e;
+  }
+
+  .VideoCircle__ring {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .VideoCircle__center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    border: none;
+    padding: 0;
+
+    > svg {
+      fill: #fff;
+      width: 22px;
+      height: 22px;
+    }
+
+    .Progress {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transform: scaleX(-1);
-   }
+      animation: spin 1.2s linear infinite;
+      color: rgba(255, 255, 255, 0.85);
+    }
 
-   .VideoCircle__placeholder {
-      width: 100%;
-      height: 100%;
-      background: #1a1a2e;
-   }
-
-   .VideoCircle__ring {
+    .VideoCircle__cancel {
       position: absolute;
-      top: -4px;
-      left: -4px;
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      z-index: 2;
-      pointer-events: none;
-   }
-
-   .VideoCircle__center {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      width: 48px;
-      height: 48px;
+      inset: 0;
       border-radius: 50%;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(4px);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 3;
-      border: none;
-      padding: 0;
 
-      > svg {
-         fill: #fff;
-         width: 22px;
-         height: 22px;
+      svg {
+        fill: #fff;
+        width: 55%;
+        height: 55%;
       }
+    }
+  }
 
-      .Progress {
-         position: absolute;
-         inset: 0;
-         width: 100%;
-         height: 100%;
-         animation: spin 1.2s linear infinite;
-         color: rgba(255, 255, 255, 0.85);
-      }
+  .VideoCircle__info {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+  }
 
-      .VideoCircle__cancel {
-         position: absolute;
-         inset: 0;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-
-         svg {
-            fill: #fff;
-            width: 55%;
-            height: 55%;
-         }
-      }
-   }
-
-   .VideoCircle__info {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.8);
-      z-index: 2;
-   }
-
-   .VideoCircle__duration,
-   .VideoCircle__sent-time {
-      font-size: 0.6em;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1;
-   }
+  .VideoCircle__duration,
+  .VideoCircle__sent-time {
+    font-size: 0.6em;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1;
+  }
 }
 
 // Video mode button style
 .Chat-BottomBar {
-   .Microphone--video {
-      background: #ff4444;
+  .Microphone--video {
+    background: #ff4444;
 
-      svg {
-         fill: #fff;
-      }
-   }
+    svg {
+      fill: #fff;
+    }
+  }
 }
 
 .UI-Particle,
 .UI-ImageParticle,
 .UI-TextParticle {
-   border-radius: 100px;
-   position: absolute;
-   animation: Disintegrate 1.5s forwards;
-   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-   z-index: 1000;
+  border-radius: 100px;
+  position: absolute;
+  animation: Disintegrate 1.5s forwards;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .UI-ImageParticle {
-   overflow: hidden;
+  overflow: hidden;
 }
 
 @keyframes Disintegrate {
-   0% {
-      opacity: 1;
-      transform: translate(0px, 0px) rotate(0deg) scale(1);
-   }
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
 
-   100% {
-      opacity: 0;
-      transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
-         rotate(calc(var(--x) * 1deg)) scale(0.1);
-   }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+      rotate(calc(var(--x) * 1deg)) scale(0.1);
+  }
 }
 
 // ─── Reply/Edit preview bar (BottomBar) ────────────────────────────────────
 .Chat-ReplyPreview {
-   display: flex;
-   align-items: center;
-   padding: 8px 10px 6px;
-   gap: 10px;
-   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 6px;
+  gap: 10px;
+  overflow: hidden;
 
-   .Chat-ReplyPreview-Icon {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      color: var(--ACCENT_COLOR);
+  .Chat-ReplyPreview-Icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    color: var(--ACCENT_COLOR);
 
-      svg {
-         width: 18px;
-         height: 18px;
-         fill: var(--ACCENT_COLOR);
-      }
-   }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--ACCENT_COLOR);
+    }
+  }
 
-   .Chat-ReplyPreview-Content {
-      display: flex;
-      align-items: stretch;
-      gap: 10px;
-      flex: 1;
-      min-width: 0;
-      background: var(--LG_AIR_COLOR);
-      backdrop-filter: var(--LG_AIR_BLUR);
-      border-radius: 10px;
-      padding: 6px 10px;
-      border: solid 1px rgb(209 209 209 / 30%);
-   }
+  .Chat-ReplyPreview-Content {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    background: var(--LG_AIR_COLOR);
+    -webkit-backdrop-filter: var(--LG_AIR_BLUR);
+    backdrop-filter: var(--LG_AIR_BLUR);
+    border-radius: 10px;
+    padding: 6px 10px;
+    border: solid 1px rgb(209 209 209 / 30%);
+  }
 
-   .Chat-ReplyPreview-Line {
-      width: 3px;
-      border-radius: 3px;
-      background: var(--ACCENT_COLOR);
-      flex-shrink: 0;
-      align-self: stretch;
-   }
+  .Chat-ReplyPreview-Line {
+    width: 3px;
+    border-radius: 3px;
+    background: var(--ACCENT_COLOR);
+    flex-shrink: 0;
+    align-self: stretch;
+  }
 
-   .Chat-ReplyPreview-Info {
-      min-width: 0;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-   }
+  .Chat-ReplyPreview-Info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
 
-   .Chat-ReplyPreview-Title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ACCENT_COLOR);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-   }
+  .Chat-ReplyPreview-Title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ACCENT_COLOR);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-   .Chat-ReplyPreview-Text {
-      font-size: 12px;
-      color: var(--LG_AIR_TEXT_COLOR);
-      opacity: 0.7;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-   }
+  .Chat-ReplyPreview-Text {
+    font-size: 12px;
+    color: var(--LG_AIR_TEXT_COLOR);
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-   .Chat-ReplyPreview-Close {
-      flex-shrink: 0;
-      background: var(--LG_AIR_COLOR);
-      backdrop-filter: var(--LG_AIR_BLUR);
-      border: solid 1px rgb(209 209 209 / 30%);
-      border-radius: 50%;
-      cursor: pointer;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--LG_AIR_TEXT_COLOR);
-      transition: background 0.15s;
+  .Chat-ReplyPreview-Close {
+    flex-shrink: 0;
+    background: var(--LG_AIR_COLOR);
+    -webkit-backdrop-filter: var(--LG_AIR_BLUR);
+    backdrop-filter: var(--LG_AIR_BLUR);
+    border: solid 1px rgb(209 209 209 / 30%);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--LG_AIR_TEXT_COLOR);
+    transition: background 0.15s;
 
-      &:hover {
-         background: var(--LG_AIR_BLOCK_COLOR);
-      }
+    &:hover {
+      background: var(--LG_AIR_BLOCK_COLOR);
+    }
 
-      svg {
-         width: 14px;
-         height: 14px;
-      }
-   }
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
 }
 
 // ─── Reply bubble inside message ───────────────────────────────────────────
 .Chat-M_Reply {
-   display: flex;
-   gap: 0;
-   margin: 6px 6px 2px;
-   border-radius: 7px;
-   overflow: hidden;
-   cursor: pointer;
-   transition: opacity 0.15s;
+  display: flex;
+  gap: 0;
+  margin: 6px 6px 2px;
+  border-radius: 7px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.15s;
 
-   &:hover {
-      opacity: 0.8;
-   }
+  &:hover {
+    opacity: 0.8;
+  }
 
-   .Chat-M_Reply-Bar {
-      width: 3px;
-      flex-shrink: 0;
-      background: currentColor;
-      opacity: 0.6;
-   }
+  .Chat-M_Reply-Bar {
+    width: 3px;
+    flex-shrink: 0;
+    background: currentColor;
+    opacity: 0.6;
+  }
 
-   .Chat-M_Reply-Body {
-      padding: 4px 8px;
+  .Chat-M_Reply-Body {
+    padding: 4px 8px;
+    min-width: 0;
+    flex: 1;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .Chat-M_Reply-Author {
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.9;
+  }
+
+  .Chat-M_Reply-Text {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.65;
+
+    .Chat-M_Reply-Type {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       min-width: 0;
-      flex: 1;
-      background: rgba(0, 0, 0, 0.08);
-   }
+    }
 
-   .Chat-M_Reply-Author {
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0.9;
-   }
+    .Chat-M_Reply-TypeIcon {
+      display: inline-flex;
+      align-items: center;
+      opacity: 0.85;
+      flex-shrink: 0;
 
-   .Chat-M_Reply-Text {
-      font-size: 11px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0.65;
-
-      .Chat-M_Reply-Type {
-         display: inline-flex;
-         align-items: center;
-         gap: 4px;
-         min-width: 0;
+      svg {
+        width: 11px;
+        height: 11px;
       }
-
-      .Chat-M_Reply-TypeIcon {
-         display: inline-flex;
-         align-items: center;
-         opacity: 0.85;
-         flex-shrink: 0;
-
-         svg {
-            width: 11px;
-            height: 11px;
-         }
-      }
-   }
+    }
+  }
 }
 
 .Chat-SearchBar {
-   position: absolute;
-   top: 66px;
-   left: 18px;
-   right: 18px;
-   z-index: 4;
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  top: 66px;
+  left: 18px;
+  right: 18px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
 
 .Chat-SearchInput {
-   flex: 1;
-   min-width: 0;
-   background: var(--BLOCK_COLOR);
-   border: 1px solid var(--AIR_BLOCK_COLOR);
-   border-radius: 10px;
-   height: 36px;
-   padding: 0 12px;
-   color: var(--TEXT_COLOR);
-   -webkit-appearance: none;
-   appearance: none;
+  flex: 1;
+  min-width: 0;
+  background: var(--BLOCK_COLOR);
+  border: 1px solid var(--AIR_BLOCK_COLOR);
+  border-radius: 10px;
+  height: 36px;
+  padding: 0 12px;
+  color: var(--TEXT_COLOR);
+  -webkit-appearance: none;
+  appearance: none;
 
-   &::-webkit-search-cancel-button,
-   &::-webkit-search-decoration {
-      -webkit-appearance: none;
-      display: none;
-   }
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+    display: none;
+  }
 
-   &:focus {
-      outline: none;
-   }
+  &:focus {
+    outline: none;
+  }
 }
 
 .Chat-SearchCount {
-   color: var(--D_OR_P_COLOR);
-   min-width: 42px;
-   text-align: center;
-   font-size: 0.82em;
-   user-select: none;
+  color: var(--D_OR_P_COLOR);
+  min-width: 42px;
+  text-align: center;
+  font-size: 0.82em;
+  user-select: none;
 }
 
 .Chat-SearchNav,
 .Chat-SearchClose {
-   background: transparent;
-   border: none;
-   width: 32px;
-   height: 32px;
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: var(--TEXT_COLOR);
-   opacity: 0.75;
-   cursor: pointer;
-   transition: 0.12s;
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--TEXT_COLOR);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.12s;
 
-   &:hover:not(:disabled) {
-      background: var(--AIR_BLOCK_COLOR);
-      opacity: 1;
-   }
+  &:hover:not(:disabled) {
+    background: var(--AIR_BLOCK_COLOR);
+    opacity: 1;
+  }
 
-   &:disabled {
-      cursor: default;
-      opacity: 0.35;
-   }
+  &:disabled {
+    cursor: default;
+    opacity: 0.35;
+  }
 
-   svg {
-      fill: currentColor;
-      width: 16px;
-      height: 16px;
-   }
+  svg {
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .Chat-SearchNav.Down svg {
-   transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 // для своих сообщений (белый текст) — акцент белый
 .Chat-M_Me .Chat-M_Reply {
-   color: #fff;
-   .Chat-M_Reply-Body {
-      background: rgba(255, 255, 255, 0.15);
-   }
+  color: #fff;
+  .Chat-M_Reply-Body {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }
 
 // для чужих сообщений — акцент цветной
 .Chat-M_URS .Chat-M_Reply {
-   color: var(--ACCENT_COLOR);
-   .Chat-M_Reply-Body {
-      background: rgba(var(--ACCENT_COLOR_RGB), 0.08);
-   }
+  color: var(--ACCENT_COLOR);
+  .Chat-M_Reply-Body {
+    background: rgba(var(--ACCENT_COLOR_RGB), 0.08);
+  }
 }
 
 // ─── "ред." метка ──────────────────────────────────────────────────────────
 .Chat-M_Edited {
-   font-size: 10px;
-   opacity: 0.55;
-   margin-right: 3px;
+  font-size: 10px;
+  opacity: 0.55;
+  margin-right: 3px;
 }
 
 // ─── Реакции под сообщением ────────────────────────────────────────────────
 .Chat-M_Reactions {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 4px;
-   padding: 2px 6px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 2px 6px 6px;
 }
 
 .Chat-M_Reaction {
-   display: inline-flex;
-   align-items: center;
-   gap: 4px;
-   padding: 3px 8px 3px 5px;
-   border-radius: 14px;
-   border: 1px solid var(--BORDER_COLOR);
-   background: var(--LG_AIR_COLOR);
-   backdrop-filter: var(--LG_AIR_BLUR);
-   cursor: pointer;
-   transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px 3px 5px;
+  border-radius: 14px;
+  border: 1px solid var(--BORDER_COLOR);
+  background: var(--LG_AIR_COLOR);
+  backdrop-filter: var(--LG_AIR_BLUR);
+  -webkit-backdrop-filter: var(--LG_AIR_BLUR);
+  cursor: pointer;
+  transition: all 0.15s;
 
-   &:hover {
-      background: var(--LG_AIR_BLOCK_COLOR);
-   }
+  &:hover {
+    background: var(--LG_AIR_BLOCK_COLOR);
+  }
 
-   &--active {
-      border-color: var(--ACCENT_COLOR);
-      background: rgba(var(--ACCENT_COLOR_RGB), 0.12);
-   }
+  &--active {
+    border-color: var(--ACCENT_COLOR);
+    background: rgba(var(--ACCENT_COLOR_RGB), 0.12);
+  }
 
-   .Chat-M_Reaction-Emoji {
-      font-size: 16px;
-      line-height: 1;
-   }
+  .Chat-M_Reaction-Emoji {
+    font-size: 16px;
+    line-height: 1;
+  }
 
-   .Chat-M_Reaction-Avatars {
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      min-width: 16px;
-      height: 16px;
+  .Chat-M_Reaction-Avatars {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    min-width: 16px;
+    height: 16px;
+
+    .Avatar {
+      width: 16px !important;
+      height: 16px !important;
+      font-size: 8px !important;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+  }
+
+  .Chat-M_Reaction-AvatarStack {
+    display: inline-flex;
+
+    .Avatar {
+      width: 16px !important;
+      height: 16px !important;
+      font-size: 8px !important;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    &--second {
+      margin-left: -6px;
 
       .Avatar {
-         width: 16px !important;
-         height: 16px !important;
-         font-size: 8px !important;
-         border-radius: 50%;
-         overflow: hidden;
-         flex-shrink: 0;
+        border: 1.5px solid var(--LG_AIR_COLOR);
       }
-   }
+    }
+  }
 
-   .Chat-M_Reaction-AvatarStack {
-      display: inline-flex;
-
-      .Avatar {
-         width: 16px !important;
-         height: 16px !important;
-         font-size: 8px !important;
-         border-radius: 50%;
-         overflow: hidden;
-      }
-
-      &--second {
-         margin-left: -6px;
-
-         .Avatar {
-            border: 1.5px solid var(--LG_AIR_COLOR);
-         }
-      }
-   }
-
-   .Chat-M_Reaction-Count {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--LG_AIR_TEXT_COLOR);
-   }
+  .Chat-M_Reaction-Count {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--LG_AIR_TEXT_COLOR);
+  }
 }
 
 // Реакции у своих сообщений (Chat-M_Me) — светлый вариант
 .Chat-M_Me .Chat-M_Reaction {
-   border-color: rgba(255, 255, 255, 0.3);
-   background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
 
-   &--active {
-      border-color: rgba(255, 255, 255, 0.7);
-      background: rgba(255, 255, 255, 0.25);
-   }
+  &--active {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.25);
+  }
 
-   .Chat-M_Reaction-Count {
-      color: #fff;
-   }
+  .Chat-M_Reaction-Count {
+    color: #fff;
+  }
 
-   .Chat-M_Reaction-AvatarStack--second .Avatar {
-      border-color: rgba(255, 255, 255, 0.3);
-   }
+  .Chat-M_Reaction-AvatarStack--second .Avatar {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 // ─── Popup с деталями реакции ─────────────────────────────────────────────
 .Chat-M_ReactionPopup {
-   min-width: 180px;
-   max-width: 260px;
-   padding: 8px 0;
+  min-width: 180px;
+  max-width: 260px;
+  padding: 8px 0;
 
-   .Chat-M_ReactionPopup-Header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 12px 8px;
-      border-bottom: 1px solid var(--LG_AIR_BLOCK_COLOR);
-   }
+  .Chat-M_ReactionPopup-Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px 8px;
+    border-bottom: 1px solid var(--LG_AIR_BLOCK_COLOR);
+  }
 
-   .Chat-M_ReactionPopup-List {
-      padding: 4px 0;
-      max-height: 200px;
-      overflow-y: auto;
-   }
+  .Chat-M_ReactionPopup-List {
+    padding: 4px 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
 
-   .Chat-M_ReactionPopup-User {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
+  .Chat-M_ReactionPopup-User {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
 
-      .Avatar {
-         width: 28px !important;
-         height: 28px !important;
-         font-size: 14px !important;
-         border-radius: 50%;
-         overflow: hidden;
-         flex-shrink: 0;
-      }
-   }
-
-   .Chat-M_ReactionPopup-UserInfo {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-   }
-
-   .Chat-M_ReactionPopup-UserName {
-      font-size: 13px;
-      font-weight: 500;
-      white-space: nowrap;
+    .Avatar {
+      width: 28px !important;
+      height: 28px !important;
+      font-size: 14px !important;
+      border-radius: 50%;
       overflow: hidden;
-      text-overflow: ellipsis;
-   }
+      flex-shrink: 0;
+    }
+  }
 
-   .Chat-M_ReactionPopup-UserDate {
-      font-size: 11px;
-      color: var(--LG_AIR_TEXT_COLOR);
-      opacity: 0.6;
-   }
+  .Chat-M_ReactionPopup-UserInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .Chat-M_ReactionPopup-UserName {
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .Chat-M_ReactionPopup-UserDate {
+    font-size: 11px;
+    color: var(--LG_AIR_TEXT_COLOR);
+    opacity: 0.6;
+  }
 }
 
 // ─── Контекстное меню сообщений — компактный стиль как в TG ──────────────
 .UI-ContextMenu-Container .UI-GovernButtons {
-   min-width: 180px;
-   max-width: 220px;
+  min-width: 180px;
+  max-width: 220px;
 
-   .Container button {
-      padding: 7px 10px 7px 32px;
-      font-size: 0.88rem;
-      align-items: center;
+  .Container button {
+    padding: 7px 10px 7px 32px;
+    font-size: 0.88rem;
+    align-items: center;
 
-      svg {
-         width: 15px;
-         height: 15px;
-         left: 10px;
-      }
-   }
+    svg {
+      width: 15px;
+      height: 15px;
+      left: 10px;
+    }
+  }
 }
 
 // ─── Быстрые реакции в шапке контекстного меню ────────────────────────────
 .ContextMenu-Header {
-   border-bottom: 1px solid var(--LG_AIR_BLOCK_COLOR);
-   padding: 0;
+  border-bottom: 1px solid var(--LG_AIR_BLOCK_COLOR);
+  padding: 0;
 }
 
 .Chat-M_QuickReactions {
-   display: flex;
-   align-items: center;
-   padding: 4px 2px;
-   gap: 0;
+  display: flex;
+  align-items: center;
+  padding: 4px 2px;
+  gap: 0;
 }
 
 .Chat-M_QR {
-   background: none;
-   border: none;
-   cursor: pointer;
-   padding: 5px 5px;
-   border-radius: 8px;
-   transition:
-      transform 0.12s,
-      background 0.12s;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 5px;
+  border-radius: 8px;
+  transition:
+    transform 0.12s,
+    background 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-   img {
-      width: 26px;
-      height: 26px;
-      display: block;
-   }
+  img {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
 
-   &:hover {
-      background: var(--LG_AIR_BLOCK_COLOR);
-      transform: scale(1.3);
-   }
+  &:hover {
+    background: var(--LG_AIR_BLOCK_COLOR);
+    transform: scale(1.3);
+  }
 }
 
 // ─── Подсветка сообщения при переходе по reply ────────────────────────────
 @keyframes msg-highlight {
-   0% {
-      box-shadow: none;
-   }
-   25% {
-      box-shadow: 0 0 0 2px var(--ACCENT_COLOR);
-   }
-   100% {
-      box-shadow: none;
-   }
+  0% {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: 0 0 0 2px var(--ACCENT_COLOR);
+  }
+  100% {
+    box-shadow: none;
+  }
 }
 
 .message-highlight {
-   animation: msg-highlight 1.2s ease;
+  animation: msg-highlight 1.2s ease;
 }
 
 .Chat-SearchInlineMark {
-   background: rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.42);
-   color: inherit;
-   border-radius: 4px;
-   padding: 0 2px;
-   box-shadow:
-      0 0 0 1px rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.6),
-      0 0 6px rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.28);
-   font-weight: 500;
+  background: rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.42);
+  color: inherit;
+  border-radius: 4px;
+  padding: 0 2px;
+  box-shadow:
+    0 0 0 1px rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.6),
+    0 0 6px rgba(var(--ACCENT_COLOR_RGB, 150, 116, 202), 0.28);
+  font-weight: 500;
 }
 
 .Chat-M_Me .Chat-SearchInlineMark {
-   background: rgba(255, 255, 255, 0.5);
-   color: inherit;
-   box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.7),
-      0 0 6px rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.5);
+  color: inherit;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.7),
+    0 0 6px rgba(255, 255, 255, 0.24);
 }

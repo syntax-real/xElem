@@ -20,10 +20,7 @@ import Home from "./Pages/Home";
 const Music = lazy(() => import("./Pages/Music"));
 const Messenger = lazy(() => import("./Pages/Messenger"));
 import Settings from "./Pages/Settings";
-const ViewEPACK = lazy(() => import("./Pages/ViewEPACK"));
-import Gold from "./Pages/Gold/Gold";
 import Balance from "./Pages/Balance";
-const Panel = lazy(() => import("./Pages/Panel"));
 const Info = lazy(() => import("./Pages/Info/Info"));
 import JoinGroup from "./Pages/Messenger/JoinGroup";
 import Notifications from "./Pages/Notifications";
@@ -75,12 +72,6 @@ const routes = [
         ),
       },
       {
-        path: "/panel/*",
-        name: "Панель управления",
-        element: <Panel />,
-        layout: "base",
-      },
-      {
         path: "/chat",
         element: <Messenger />,
       },
@@ -101,14 +92,6 @@ const routes = [
         element: (
           <MainLayout className="Settings-Page">
             <Settings />
-          </MainLayout>
-        ),
-      },
-      {
-        path: "/gold",
-        element: (
-          <MainLayout className="GoldSub-Page">
-            <Gold />
           </MainLayout>
         ),
       },
@@ -140,14 +123,6 @@ const routes = [
     path: "/post/:id",
     protected: false,
     element: <Post />,
-  },
-  {
-    path: "/epack",
-    element: (
-      <MainLayout className="EPACK-Page">
-        <ViewEPACK />
-      </MainLayout>
-    ),
   },
   {
     path: "/info",

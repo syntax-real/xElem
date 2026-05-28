@@ -35,12 +35,7 @@ const SubWrapper = ({ users }) => {
   );
 };
 
-const Header = ({
-  profileData,
-  profileLoaded,
-  profileHidden,
-  updateProfile,
-}) => {
+const Header = ({ profileData, profileLoaded, profileHidden }) => {
   const { t } = useTranslation();
   const { isAuthorized } = useAuth();
   const { openImage } = useImageView();
@@ -273,7 +268,6 @@ const Header = ({
                 <HeaderButtons
                   profileData={profileData}
                   profileLoaded={profileLoaded}
-                  updateProfile={updateProfile}
                 />
               )}
               <div className="Info">

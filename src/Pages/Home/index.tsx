@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { PreloadPosts } from "../../System/UI/Preload";
 import { useInView } from "react-intersection-observer";
-import GoldUsers from "../../System/Elements/GoldUsers";
 import { useTranslation } from "react-i18next";
 import Update from "@/Widgets/Update";
 import { DefaultBanner } from "../../Components/Ad";
@@ -154,12 +153,6 @@ const Home = () => {
             <MyChannels />
           </div>
           <DefaultBanner />
-          <Block>
-            <div className="UI-Title">{t("gold_users_list_1")}</div>
-            <div className="GoldSub-Users">
-              <GoldUsers />
-            </div>
-          </Block>
         </div>
       </div>
     </>

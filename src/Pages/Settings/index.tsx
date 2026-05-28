@@ -10,7 +10,6 @@ import {
   I_WARNING,
 } from "../../System/UI/IconPack";
 import { useTranslation } from "react-i18next";
-import Themes from "./components/Themes";
 import { useModalsStore } from "../../Store/modalsStore";
 import { BackButton, Block, MenuItems } from "../../UIKit";
 import { useAuth } from "../../System/Hooks/useAuth";
@@ -256,12 +255,6 @@ const Settings = () => {
                   </button>
                 ))}
               </div>
-            </Block>
-            <div className="UI-PartitionName">
-              {t("partition_change_theme")}
-            </div>
-            <Block className="Settings-Themes">
-              <Themes />
             </Block>
           </div>
         </div>
